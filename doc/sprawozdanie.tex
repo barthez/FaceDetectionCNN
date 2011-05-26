@@ -5,10 +5,14 @@
 \usepackage{lmodern}
 \usepackage{graphicx}
 \usepackage{anysize}
+\usepackage{makeidx}
+
 
 %\def\projectsymbol
 
 \newcommand{\maketitlepage}{
+\titlepage
+
 \begin{center}
 
 \LARGE{AKADEMIA GÓRNICZO-HUTNICZA}
@@ -27,12 +31,22 @@
 \large{Katedra Automatyki}\\
 \large{Laboratorium Biocybernetyki}\\
 
-
 \vspace*{1cm}
 
+\begin{minipage}[!h]{0.4\textwidth}
+  asd
+\end{minipage}
 
+\begin{minipage}[!h]{0.4\textwidth}
+  \begin{flushright} 
+    qqe
+  \end{flushright}
+\end{minipage}
+
+\date{\today}
 \end{center}
 
+\newpage
 }
 
 
@@ -45,11 +59,16 @@
     Krzysztof Śmiłek\\
     Informatyka Stosowana\\
     Wydział EAIiE}
-\date{\today}
+
+
+\makeindex
 
 \begin{document}
 
 \maketitlepage
+
+\printindex
+
 
 \section{Streszczenie}
 
