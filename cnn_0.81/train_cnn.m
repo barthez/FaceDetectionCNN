@@ -45,9 +45,9 @@ numInputs = 1;
 %Image width
 InputWidth = 32; 
 %Image height
-InputHeight = 32;
+InputHeight = 36;
 %Number of outputs
-numOutputs = 10; 
+numOutputs = 1; 
 %Create an empty convolutional neural network with deined structure
 sinet = cnn(numLayers,numFLayers,numInputs,InputWidth,InputHeight,numOutputs);
 
@@ -66,9 +66,10 @@ sinet.SLayer{1}.TransfFunc = 'purelin';
 
 
 %Second layer - 6 convolution kernels with 5x5 size 
-sinet.CLayer{2}.numKernels = 6;
+sinet.CLayer{2}.numKernels = 4;
 sinet.CLayer{2}.KernWidth = 5;
 sinet.CLayer{2}.KernHeight = 5;
+%sinet.CLayer{2}.TransfFunc = 'purelin'; % Wyjœcie z konwolucji jest liniowe
 %Weights 150
 %Biases 6
 
@@ -79,9 +80,10 @@ sinet.SLayer{3}.SRate = 2;
 %Biases 6
 
 %Forth layer - 16 kernels with 5x5 size 
-sinet.CLayer{4}.numKernels = 16;
-sinet.CLayer{4}.KernWidth = 5;
-sinet.CLayer{4}.KernHeight = 5;
+sinet.CLayer{4}.numKernels = 14;
+sinet.CLayer{4}.KernWidth = 3;
+sinet.CLayer{4}.KernHeight = 3;
+%sinet.CLayer{4}.TransfFunc = 'purelin'; % Wyjœcie z konwolucji jest liniowe
 %Weights 150
 %Biases 6
 
@@ -92,19 +94,22 @@ sinet.SLayer{5}.SRate = 2;
 %Biases 6
 
 %Sixth layer - outputs 120 feature maps 1x1 size
-sinet.CLayer{6}.numKernels = 120;
-sinet.CLayer{6}.KernWidth = 5;
-sinet.CLayer{6}.KernHeight = 5;
+sinet.CLayer{6}.numKernels = 14;
+sinet.CLayer{6}.KernWidth = 1;
+sinet.CLayer{6}.KernHeight = 1;
+sinet.CLayer{6}.WC{1} = ones(size(sinet.CLayer{6}.WC{1}));
+sinet.CLayer{6}.BC{1} = zeros(size(sinet.CLayer{6}.BC{1}));
+%sinet.CLayer{6}.TransfFunc = 'purelin';
 %Weights 3000
 %Ñìåùåíèé 120
 
 %Seventh layer - fully connected, 84 neurons
-sinet.FLayer{7}.numNeurons = 84;
+sinet.FLayer{7}.numNeurons = 14;
 %Weights 10080
 %Biases 84
 
 %Eight layer - fully connected, 10 output neurons
-sinet.FLayer{8}.numNeurons = 10;
+sinet.FLayer{8}.numNeurons = 1;
 %Weights 840
 %Biases 10
 
@@ -114,16 +119,18 @@ sinet = init(sinet);
 %According to [2] the generalisation is better if there's unsimmetry in
 %layers connections. Yann LeCun uses this kind of connection map:
 sinet.CLayer{4}.ConMap = ...
-[1 0 0 0 1 1 1 0 0 1 1 1 1 0 1 1;
- 1 1 0 0 0 1 1 1 0 0 1 1 1 1 0 1;
- 1 1 1 0 0 0 1 1 1 0 0 1 0 1 1 1;
- 0 1 1 1 0 0 1 1 1 1 0 0 1 0 1 1;
- 0 0 1 1 1 0 0 1 1 1 1 0 1 1 0 1; 
- 0 0 0 1 1 1 0 0 1 1 1 1 0 1 1 1; 
+[1 1 0 0 0 0 0 0 1 0 0 1 1 0 ;
+ 0 0 1 1 0 0 0 0 1 1 0 0 0 1 ;
+ 0 0 0 0 1 1 0 0 0 1 1 0 1 0 ;
+ 0 0 0 0 0 0 1 1 0 0 1 1 0 1 ; 
 ]';
 %but some papers proposes to randomly generate the connection map. So you
 %can try it:
-%sinet.CLayer{6}.ConMap = round(rand(size(sinet.CLayer{6}.ConMap))-0.1);
+
+% Pol¹czenie 1-1
+sinet.CLayer{6}.ConMap = eye(14);
+
+
 sinet.SLayer{1}.WS{1} = ones(size(sinet.SLayer{1}.WS{1}));
 sinet.SLayer{1}.BS{1} = zeros(size(sinet.SLayer{1}.BS{1}));
 %In my impementation output layer is ordinary tansig layer as opposed to
@@ -135,7 +142,7 @@ sinet.SLayer{1}.BS{1} = zeros(size(sinet.SLayer{1}.BS{1}));
 %%
 %Now the final preparations
 %Number of epochs
-sinet.epochs = 3;
+sinet.epochs = 60;
 %Mu coefficient for stochastic Levenberg-Markvardt
 sinet.mu = 0.001;
 %Training coefficient

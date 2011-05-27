@@ -16,7 +16,7 @@ mPropertyDefs   =   {...        % The supported custom property/value pairs of t
                      'MNISTfile',    @localValidateInput, 'mMNISTFile'};
 mIconWidth      =   28;         % Use input property 'iconwidth' to initialize
 mIconHeight     =   28;         % Use input property 'iconheight' to initialize
-mMNISTFile       =   fullfile(matlabroot,'./'); 
+mMNISTFile       =   fullfile(matlabroot,'../'); 
 Images = {0};
 im_ptr = 1;
 
