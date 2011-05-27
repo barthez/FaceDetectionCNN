@@ -131,7 +131,7 @@ sinet.CLayer{4}.ConMap = ...
 %can try it:
 
 % Pol¹czenie 1-1
-sinet.CLayer{6}.ConMap = eye(14);
+sinet.CLayer{6}.ConMap =eye(14);
 
 
 sinet.SLayer{1}.WS{1} = ones(size(sinet.SLayer{1}.WS{1}));

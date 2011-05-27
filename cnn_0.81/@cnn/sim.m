@@ -19,6 +19,7 @@ function [out, cnet] = sim(cnet,inp)
 
 %Supposed that input image is preprocessed to zero mean and 1 deviation
 %Subsampling
+
 cnet.SLayer{1}.SS{1} = subsample(inp,cnet.SLayer{1}.SRate);
 cnet.SLayer{1}.YS{1} = cnet.SLayer{1}.SS{1}.*cnet.SLayer{1}.WS{1}+cnet.SLayer{1}.BS{1} ;    
 %Transfer (activation,sqashing) function 
@@ -59,7 +60,14 @@ end
 %This should be considered while synthesizing the neural network structure
 %Convert the cell array of single values to a vector
 XC = cell2mat(cnet.CLayer{k}.XC)';
+size(cnet.CLayer{k}.XC)
+size(cnet.CLayer{k}.XC{1})
+k
 for k=(cnet.numLayers-cnet.numFLayers+1):cnet.numLayers
+    k
+    size(XC)
+    size(cnet.FLayer{k}.W)
+    size(cnet.FLayer{k}.B)
     %If the previous layer was C-Layer
     if (k == cnet.numCLayers+cnet.numSLayers+1)
         cnet.FLayer{k}.Y = XC*cnet.FLayer{k}.W+cnet.FLayer{k}.B;
