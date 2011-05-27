@@ -98,10 +98,10 @@ sinet.SLayer{5}.SRate = 2;
 
 %Sixth layer - outputs 120 feature maps 1x1 size
 sinet.CLayer{6}.numKernels = 14;
-sinet.CLayer{6}.KernWidth = 1;
-sinet.CLayer{6}.KernHeight = 1;
-sinet.CLayer{6}.WC{1} = ones(size(sinet.CLayer{6}.WC{1}));
-sinet.CLayer{6}.BC{1} = zeros(size(sinet.CLayer{6}.BC{1}));
+sinet.CLayer{6}.KernWidth = 6;
+sinet.CLayer{6}.KernHeight = 7;
+%sinet.CLayer{6}.WC{1} = ones(size(sinet.CLayer{6}.WC{1}));
+%sinet.CLayer{6}.BC{1} = zeros(size(sinet.CLayer{6}.BC{1}));
 %sinet.CLayer{6}.TransfFunc = 'purelin';
 %Weights 3000
 %Смещений 120
@@ -145,7 +145,7 @@ sinet.SLayer{1}.BS{1} = zeros(size(sinet.SLayer{1}.BS{1}));
 %%
 %Now the final preparations
 %Number of epochs
-sinet.epochs = 60;
+sinet.epochs = 3;
 %Mu coefficient for stochastic Levenberg-Markvardt
 sinet.mu = 0.001;
 %Training coefficient

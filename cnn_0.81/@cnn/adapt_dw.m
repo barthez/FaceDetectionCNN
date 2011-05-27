@@ -78,11 +78,12 @@ for k=(cnet.numLayers-cnet.numFLayers):-1:2 %(all except first layer, its dummy)
         mH = cnet.CLayer{k}.KernHeight;        
         %Updating weights
         %Initialize dimension vectors to convert to cell array
-        vVert=ones(cnet.CLayer{k}.numKernels,1)*mH;
-        vHoriz = mW;
+        vVert=ones(cnet.CLayer{k}.numKernels,1)*mW; % Tu zmienialiœmy
+        vHoriz = mH;
         %Convert cell to matrix and update weights
         Wnew = cell2mat(cnet.CLayer{k}.WC) - reshape(dW(wPtr:(wPtr+sz-1)),[],mW*cnet.CLayer{k}.numKernels);        
         %Convert back to cell array
+        %Wnew,vHoriz,vVert
         cnet.CLayer{k}.WC = mat2cell(Wnew,vHoriz,vVert);
         %Increment pointer
         wPtr = wPtr+sz;

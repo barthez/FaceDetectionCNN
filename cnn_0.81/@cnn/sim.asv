@@ -59,7 +59,7 @@ end
 %become 1x1 size, so the output is not a matrix but a vector
 %This should be considered while synthesizing the neural network structure
 %Convert the cell array of single values to a vector
-XC = cell2mat(cnet.CLayer{k}.XC)';
+%XC = cell2mat(cnet.CLayer{k}.XC)';
 %size(cnet.CLayer{k}.XC)
 %size(cnet.CLayer{k}.XC{1})
 %k
@@ -70,8 +70,12 @@ for k=(cnet.numLayers-cnet.numFLayers+1):cnet.numLayers
     %size(cnet.FLayer{k}.B)
     %If the previous layer was C-Layer
     if (k == cnet.numCLayers+cnet.numSLayers+1)
-        
-        cnet.FLayer{k}.Y = XC*cnet.FLayer{k}.W+cnet.FLayer{k}.B;
+        for it=1:cnet.CLayer{k-1}.numFMaps
+            w1 = cnet.CLayer{k-1}.XC{it}(:)
+            w2 = cnet.CLayer
+            cnet.FLayer{k}.Y(it) = 
+        end
+        %cnet.FLayer{k}.Y = XC*cnet.FLayer{k}.W+cnet.FLayer{k}.B;
         cnet.FLayer{k}.X = feval(cnet.FLayer{k}.TransfFunc,cnet.FLayer{k}.Y);
     else
         cnet.FLayer{k}.Y = cnet.FLayer{k-1}.X*cnet.FLayer{k}.W+cnet.FLayer{k}.B;
