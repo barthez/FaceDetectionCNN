@@ -9,8 +9,8 @@ function [ I, labels ] = loadImages( wektor )
     for it = wektor
         tmp = imread(sprintf('../faces/face_%04d.bmp', it));
         I{2*(it-m) -1} = reshape(mapstd(reshape(double((tmp)),1,[])),36,32);
-        tmp = imread(sprintf('../fake_faces/face_%04d.bmp', it));
-        I{2*(it-m) } = reshape(mapstd(reshape(double(rgb2gray(tmp)),1,[])),36,32);
+        tmp = imread(sprintf('../non_faces/img_%04d.bmp', it));
+        I{2*(it-m) } = reshape(mapstd(reshape(double(tmp),1,[])),36,32);
         labels(2*(it-m)) = 0;
     end;
 end

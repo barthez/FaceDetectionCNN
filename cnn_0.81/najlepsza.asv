@@ -1,0 +1,6 @@
+min=-2;
+max=2;
+for i=1:550,
+  x=sim(sinet,double((imread(sprintf('../faces/face_%04d.bmp', 102)))))
+  if x
+end
