@@ -61,8 +61,9 @@ SetText(h_MCRedit,mcr(end));
 if(cnet.HcalcMode == 1)
     for i=1:cnet.HrecalcSamplesNum
         %Setting the right output to 1, others to -1
-        d = -ones(1,10);
-        d(labels(i)+1) = 1;
+        %d = -ones(1,10);
+        %d(labels(i)+1) = 1;
+        d = labels(i);
         %Simulating
         [out, cnet] = sim(cnet,Ip{i});    
         %Calculate the error
@@ -84,8 +85,9 @@ for t=1:cnet.epochs
     %For all patterns
     for n=1:numPats
         %Setting the right output to 1, others to -1
-        d = -ones(1,10);
-        d(labels(n)+1) = 1;
+        %d = -ones(1,10);
+        %d(labels(n)+1) = 1;
+        d = labels(n);
         %Simulating
         [out, cnet] = sim(cnet,Ip{n});    
         %Calculate the error
@@ -108,8 +110,9 @@ for t=1:cnet.epochs
                 end
                 for i=stInd:stInd+cnet.HrecalcSamplesNum
                     %Setting the right output to 1, others to -1
-                    d = -ones(1,10);
-                    d(labels(i)+1) = 1;
+                    %d = -ones(1,10);
+                    %d(labels(i)+1) = 1;
+                    d = labels(n); % !!!!!
                     %Simulating
                     [out, cnet] = sim(cnet,Ip{i});    
                     %Calculate the error

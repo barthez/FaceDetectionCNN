@@ -27,7 +27,10 @@
 clear;
 clc;
 %Load the digits into workspace
-[I,labels,I_test,labels_test] = readMNIST(1000); 
+%[I,labels,I_test,labels_test] = readMNIST(1000);
+[I, labels] = loadImages(1:500);
+[It, labelst] = loadImages(501:550);
+
 %%
 
 %Define the structure according to [2]
@@ -160,9 +163,9 @@ sinet.teta_dec = 0.4;
 
 %Images preprocessing. Resulting images have 0 mean and 1 standard
 %deviation. Go inside the preproc_data for details
-[Ip, labtrn] = preproc_data(I,1000,labels,0);
-[I_testp, labtst] = preproc_data(I_test,100,labels_test,0);
+%[Ip, labtrn] = preproc_data(I,1000,labels,0);
+%[I_testp, labtst] = preproc_data(I_test,100,labels_test,0);
 %Actualy training
-sinet = train(sinet,Ip,labtrn,I_testp,labtst);
+sinet = train(sinet,I,labels,It,labelst);
 
 
