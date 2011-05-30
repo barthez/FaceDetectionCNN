@@ -4,8 +4,10 @@
 \usepackage[polish]{babel}
 \usepackage{lmodern}
 \usepackage{graphicx}
+\usepackage{epstopdf}
 \usepackage{anysize}
 \usepackage{makeidx}
+
 
 
 %\def\projectsymbol
@@ -18,7 +20,7 @@
 \LARGE{AKADEMIA GÓRNICZO-HUTNICZA}
 
 \vspace*{1cm}
-\includegraphics[scale=0.7]{agh}
+\includegraphics[scale=1.8]{agh.eps}
 \vspace*{1cm}
 
 \LARGE{im. Stanisława Staszica w Krakowie}
@@ -33,15 +35,15 @@
 
 \vspace*{1cm}
 
-\begin{minipage}[!h]{0.4\textwidth}
-  asd
-\end{minipage}
+%\begin{minipage}[!h]{0.4\textwidth}
+%  asd
+%\end{minipage}
 
-\begin{minipage}[!h]{0.4\textwidth}
-  \begin{flushright} 
-    qqe
-  \end{flushright}
-\end{minipage}
+%\begin{minipage}[!h]{0.4\textwidth}
+% \begin{flushright}
+%    qqe
+%  \end{flushright}
+%\end{minipage}
 
 \date{\today}
 \end{center}
@@ -70,18 +72,121 @@
 \printindex
 
 
+%=================================================
 \section{Streszczenie}
 
+Celem naszego projektu jest zbudowanie prototypu systemu pozwalającego na detekcję twarzy na obrazie 
+w oparciu o sieć neuronową typu CNN (Convolutional Neural Network).
+%=================================================
 \section{Wstęp}
 
-\section{Proponowane rozwiązanie}
+\subsection{Co to jest sieć neuronowa?}
+Siec neuronowa jest modelem matematycznym składającym się z sieci węzłów obliczeniowych zwanych neuronami
+ i ich połączeń. Jest to pewna technika obliczeniowo-statystyczna, należąca do dziedziny sztucznej inteligencji. 
+Jej zadaniem jest symulacja działania ludzkiego mózgu. 
 
+\subsection{Budowa sieci neuronowej }
+Nasz mózg jest zbudowany z ogromnej ilości neuronów które komunikują się ze sobą za pomocą impulsów elektrycznych.
+ Z informatycznego punktu widzenia neuron stanowi układ przetwarzający pewne dane, posiadający wiele wejść
+ oraz jedno wyjście. Oto porównanie neuronu naturalnego ze sztucznym:
+
+\vspace*{1cm}
+\hspace*{1cm}
+\includegraphics[scale=0.7]{neuron}
+\hspace*{1cm}
+\includegraphics[scale=0.7]{neuron2}
+\hspace*{1cm}
+\vspace*{1cm}
+
+Działanie sztucznego neuronu można opisać w przybliżeniu następująco:\\
+Sygnały $x_{i}$ podane na wejścia są mnożone prze odpowiednie wagi $w_{i}$ oraz sumowane.
+ Wagi mogą przyjmować dowolne wartości rzeczywiste. Równanie neuronu wygląda zatem następująco:
+\begin{center}
+$Y = x_{1}w_{1} + x_{2}w_{2} + x_{3}w_{3} + … + x_{n}w_{n} + b$\\
+\end{center}
+Suma ta staje się następnie argumentem funkcji aktywacji, która zwraca wartości z zakresu 
+(-1,1). Wynik tej funkcji pojawia się zarazem na wyjściu z neuronu.\\
+\\
+Jak zapewne możemy zauważyć pojemność pojedynczego neuronu nie jest duza, a więc nie może on zapamiętać 
+zbyt dużej ilości wzorców. Aby tego dokonać należy połączyć wiele pojedynczych neuronów w sieć. 
+Dokonuje się tego tworząc kolejne warstwy. Czym więcej warstw tym sieć bardziej złożona.
+ Ilość neuronów w poszczególnych warstwach może się różnić i zależy od konkretnego zastosowania sieci.
+ Należy do tego dodać, że neurony w jednej warstwie nie są połączone ze sobą, natomiast neurony z dwóch
+ sąsiednich warstw są połączone "każdy z każdym". Sygnał przechodzi do warstwy wejściowej poprzez ukrytą 
+aż do wyjściowej, skąd jest odbierany i interpretowany.
+%=================================================
+\section{Proponowane rozwiązanie}
+\subsection{Konwolucyjne znajdowanie twarzy}
+\vspace*{1cm}
+\includegraphics[scale=0.7]{schemat}
+\vspace*{1cm}
+
+Sieć ta składa się z sześciu warstw. Do warstw nie wlicza się obraz wejściowy o rozmiarach 32x36,
+który będzie klasyfikowany jako „twarz” lub „nie-twarz”. \\
+\indent 
+Warstwy od \textbf {C1} do \textbf{S2} składają się z serii obrazów na których są przeprowadzane operacje konwolucji lub subsamplingu.
+ Obrazy te są nazywane inaczej mapami cech, ponieważ każdy z nich wydobywa z obrazu wejściowego inną cechę. 
+Warstwa  \textbf{N1} zawiera szereg niezależnych od siebie neuronów podłączonych wyjściami do  \textbf{N2}, 
+która jest zarazem zakończeniem całej sieci neuronowej. Każdy element w danej warstwie otrzymuje 
+na wejście informacje od małego zbioru elementów z warstwy poprzedniej. Koncepcję te pokazano na rysunku  \textbf{(b)}.\\
+\indent 
+Postaramy się teraz opisać dokładniej poszczególne elementy tworzące  przedstawioną powyżej architekturę 
+sieci neuronowej. Różne parametry opisujące całą sieć tj. ilość warstw, ilość elementów w warstwie,
+ rodzaj połączeń między nimi a także wielkość poszczególnych elementów została wybrana doświadczalnie przez C. 
+Garcia i  M. Delakis. Przetestowali oni szeroki zakres wielu architektur sieci i przedstawiona powyżej okazała się
+ najbardziej skuteczna zarówno pod względem wykrywalności twarzy jak i odporności na zakłócenia obrazu.\\
+\indent 
+Warstwa  \textbf {C1} jest złożona z czterech map cech. Rozmiar każdej z nich to 28x32 pikseli. 
+Każdy piksel w każdej mapie jest połączony z 5x5 sąsiedztwem z obrazu wejściowego i jego wartość odpowiada
+ sumie ważonej tego sąsiedztwa (5x5). Dodatkowo do sumy tej jest dodawana dodatkowa zmienna trenowana
+ zwana biasem. Podsumowując, w warstwie tej znajduje się 106(4x26) trenowanych zmiennych.\\
+\indent 
+Warstwa  \textbf{S1} złożona jest z czterech map cech. Każda z map powstała poprzez subsampling mapy 
+z poprzedniej warstwy z maska 2x2, przez co jej rozmiar to połowa rozmiatu poprzedniego. Z każdych 
+4 sąsiednich pikseli maski \textbf{C1} jest brana średnia, która jest nastepnie mnożona przez trenowalna zmienną.
+Do otrzymanej wartości dodawany jest bias, po czym wynik staje się argumentem do funkcji aktywacji 
+(tangensa hiperbolicznego). Funkcja ta używana jest po to, by uniknąć wykroczenia poza zakres zmiennych.
+Podsumowując, warstwa  \textbf{S1} składa się z 4 map cech o rozmiarze 14x16 oraz 8(4x2) trenowalnych parametrów.\\
+\indent
+Jak mozna zauważyć na rysunku  \textbf{(a)}, kolejne warstwy składają się z coraz większej ilości map cech, ale za to
+ich rozdzielczość się zmniejsza. Taki rodzaj systemu sieci został zaproponowany przez Hubela i Weisela i dobrze 
+wyodrębnia on z obrazu cechy potrzebne do poźniejszego przetwarzania przez neurony.\\
+\indent
+Warstwa  \textbf{C2} to konwolucyjna warstwa z 14 mapami cech. Pierwsze 8 powstało w wyniku konwolucji 
+z maską 3x3 map z poprzedniej warstwy (każda mapa z  \textbf{S1} produkuje 2 wyjścia).
+Pozostałe 6 to złożenia dwóch z czterech map z  \textbf{S1} ($4\choose 2$ $=6$ kombinacji).\\
+Oto schemat przykladowego zlożenia map o numerach 1 i 4:\\
+\begin{center}
+$Y = maska1_{3x3}*mapa_{1}+maska2_{3x3}*mapa_{2}+bias$
+\end{center}
+Podsumowując, warstwa ta sklada się z 14 map cech o rozmiarze 12x14 pikseli każda oraz z 196(8x(3x3+1)
++ 6x(2x3x3+1)) trenowalnych zmiennych.\\
+\indent
+Warstwa  \textbf{S2} to warstwa subsamplingu analogiczna do warstwy  \textbf{S1}. 
+Zmienia sie tylko ilośc i rozmiar map cech. 
+Dostajemy zatem: 14 map o rozmiarach 6x7 oraz 28(14x2) trenowalnych zmiennych.\\
+\indent
+Ostatnie 2 warstwy składaja sie juz z neuronów. Ich zadaniem nie jest ekstrakcja cech jak miało to miejsce 
+w poprzednich warstwach, ale ich klasyfikacja. W  \textbf{N1} każdy z pojedynczych neuronów jest w pełni
+połączony z wszystkimi pikselami tylko jednej odpowiadającej mu mapy cech z  \textbf{S2}.
+Natomiast w warstwie  \textbf{N2} istnieje tylko jeden neuron, który łączy się z wyjściami ze wszystkich neuronów 
+z  \textbf{N1}. \\
+\indent
+Wszystkie neurony z warstw  \textbf{N1} i  \textbf{N2} wykonują klasyczny iloczyn skalarny pomiedzy wektorem 
+wejściowym a wektorem wag, do czego później dodawany jest jeszcze bias. Powstała ważona suma jest nastepnie 
+przepuszczana przez funkcję tangensa hiperbolicznego, po to,by wyjście z neuronu stanowila liczba z zakresu $(-1,1).$\\
+Wyjście z ostatniej warstwy  \textbf{N2} jest używana do klasyfikacji obrazu jako twarz (result>0) lub nie-twarz (result<0).
+Warstwy  \textbf{N1} i  \textbf{N2} mają zatem odpowiednio 602(14x43) i 15 trenowalnych zmiennych.\\
+%=================================================
 \section{Rezultaty i wnioski}
 
+%=================================================
 \section{Podsumowanie}
 
+%=================================================
 \section{Literatura}
 
+%=================================================
 \section{Dodatek A: Opis narzędzi i metod postępowania}
 \section{Dodatek A: Opis realizacji rozwiązania}
 \section{Dodatek A: Opis informatycznych procedur}
