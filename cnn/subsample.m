@@ -6,4 +6,6 @@
            out = out + a(1:size(out,1),1:size(out,2) );
        end
     end
+    
+    out = out/(height*width);
  end

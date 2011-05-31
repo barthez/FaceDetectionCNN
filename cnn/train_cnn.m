@@ -1,6 +1,7 @@
+close all;
 clc;
 
-cnet = cnn(6, 60);
+cnet = cnn(6, 10);
 
 cnet = setLayer(cnet, ...
                 1, ... % NUmer Warstwy
@@ -82,3 +83,5 @@ IpG = loadImages('../faces/face');
 IpB = loadImages('../non_faces/img');
 
 [error,cnet] = train(cnet, IpG, IpB);
+
+semilogy(abs(error));

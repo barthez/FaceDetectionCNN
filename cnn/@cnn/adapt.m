@@ -1,0 +1,44 @@
+function [ cnet ] = adapt( cnet, d )
+%ADAPT Summary of this function goes here
+%   Detailed explanation goes here
+
+n = cnet.LayersNum;
+
+
+cnet.Layer{n}.d{1} = d;
+
+for it = (n-1):-1:1
+    for f = 1:cnet.Layer{it}.FMapNum
+        dd = 0.0;
+        if cnet.Layer{it}.type == 'n'
+            for fm = 1:cnet.Layer{it+1}.FMapNum
+                dd = dd + cnet.Layer{it+1}.ConMap(fm,f)*cnet.Layer{it+1}.W{fm}(:,:,f) * cnet.Layer{it+1}.d{fm};
+            end
+            cnet.Layer{it}.d{f} = dd;
+        elseif cnet.Layer{it}.type == 'c'
+            for fm = 1:cnet.Layer{it+1}.FMapNum
+                if cnet.Layer{it+1}.type == 'n'
+                    dd = dd + cnet.Layer{it+1}.ConMap(fm,f)* sum( sum( cnet.Layer{it+1}.W{fm}(:,:,f) .* cnet.Layer{it+1}.d{fm} ));
+                elseif cnet.Layer{it+1}.type == 's'
+                    dd = dd + cnet.Layer{it+1}.ConMap(fm,f)* cnet.Layer{it+1}.W{fm} * cnet.Layer{it+1}.d{fm};
+                end
+            end
+            cnet.Layer{it}.d{f} = dd;
+        elseif cnet.Layer{it}.type == 's'
+            for fm = 1:cnet.Layer{it+1}.FMapNum
+                if cnet.Layer{it+1}.type == 'n'
+                    dd = dd + cnet.Layer{it+1}.ConMap(fm,f)* sum( sum( cnet.Layer{it+1}.W{fm}(:,:,f) .* cnet.Layer{it+1}.d{fm} ));
+                elseif cnet.Layer{it+1}.type == 'c'
+                    dd = dd + cnet.Layer{it+1}.ConMap(fm,f)* sum( sum( cnet.Layer{it+1}.W{fm} * cnet.Layer{it+1}.d{fm}));
+                end
+            end
+            cnet.Layer{it}.d{f} = dd;
+        end
+        %fprintf('D = %.5f\n', dd);
+        %cnet.Layer{it}.W{f} = cnet.Layer{it}.W{f} + cnet.Layer{it}.teta * cnet.Layer{it}.d{f} * ones( size ( cnet.Layer{it}.W{f} ) );
+    end
+   
+end
+
+end
+

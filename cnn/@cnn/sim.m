@@ -11,7 +11,7 @@ Ip{1} = input;
        
         %figure;
         for fm = 1:cnet.Layer{it}.FMapNum
-            subplot(1,cnet.Layer{it}.FMapNum, fm);
+            
             if cnet.Layer{it}.type == 's'
                 SS = 0;
                 for m=find(cnet.Layer{it}.ConMap(fm, :))
@@ -35,6 +35,7 @@ Ip{1} = input;
                 cnet.Layer{it}.Y{fm} = cnet.Layer{it}.Y{fm} + cnet.Layer{it}.B{fm};
                 cnet.Layer{it}.X{fm} = feval(cnet.Layer{it}.TransferFunction, cnet.Layer{it}.Y{fm});
             end
+            %subplot(6,cnet.Layer{it}.FMapNum, fm + (it-1)*cnet.Layer{it}.FMapNum);
             %imshow(cnet.Layer{it}.X{fm},[]);
             %fprintf('size(%d) = (%d, %d)\n', it, size(cnet.Layer{it}.X{fm}));
         end

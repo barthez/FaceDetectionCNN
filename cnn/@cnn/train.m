@@ -4,23 +4,29 @@ function [ error, cnet ] = train( cnet, IpG, IpB)
 
 BoostIter = 0;
 ThrFa = 0.8;
+error= [];
 while BoostIter < 6
-    BIerror = zeros(1, cnet.epochs);
+    BIerror = [];
     for ep =1:cnet.epochs
         fprintf('epoka = %d\n', ep);
-        PatNum = 60;
+        PatNum = 30;
         
         GoodSet = getRandSet(IpG, PatNum);
         BadSet  = getRandSet(IpB, PatNum);
-        EPerror = zeros(1, PatNum);
+        EPerror = zeros(1, 2*PatNum);
         for p = 1:PatNum
             [out, cnet] = sim(cnet, GoodSet{p});
-            EPerror( p ) = out - 1;
+            d = out - 1;
+            cnet = adapt(cnet, d);
+            
+            EPerror( 2*p ) = d;
             
             [out, cnet] = sim(cnet, BadSet{p});
-            EPerror( p ) = out + 1;            
+            d = out - 1;
+            cnet = adapt(cnet, d);
+            EPerror( 2*p -1 ) = out + 1;
         end
-        BIerror( ep ) = mse(EPerror);
+        BIerror = [BIerror, EPerror];
     end
     error = [error, BIerror];
     
