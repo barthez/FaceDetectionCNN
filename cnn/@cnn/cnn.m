@@ -1,7 +1,11 @@
-function cnet = cnn( Layers )
+function cnet = cnn( Layers, Epochs )
 %CNN Summary of this function goes here
 %   Detailed explanation goes here
+    
+    cnet.epochs = Epochs;
     cnet.LayersNum = Layers;
+    
+    
     for it = 1:cnet.LayersNum
        cnet.Layer{it}.type = 's';
         

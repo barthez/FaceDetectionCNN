@@ -1,6 +1,6 @@
 clc;
 
-cnet = cnn(6);
+cnet = cnn(6, 60);
 
 cnet = setLayer(cnet, ...
                 1, ... % NUmer Warstwy
@@ -27,8 +27,8 @@ cnet = setLayer(cnet, ...
 cnet = setLayer(cnet, ...
                 3, ... % NUmer Warstwy
                 'c', ... % typ warstwy c/s/n
-                5, ...  % Wysokoœæ wejœcia
-                5, ... % Szerokoœæ wejscia
+                3, ...  % Wysokoœæ wejœcia
+                3, ... % Szerokoœæ wejscia
                 'purelin', ... % Funkcja przejœcia
                 14, ... % Iloœæ feature maps-ów
                 [ 1 0 0 0; ...
@@ -75,4 +75,10 @@ cnet = setLayer(cnet, ...
 
 cnet = init(cnet);
 
-[out,sim(cnet, double(('face001.jpg')));
+%[out, cnet] = sim(cnet, double(imread('face001.jpg')));
+%imshow(out);
+
+IpG = loadImages('../faces');
+IpB = loadImages('../non-faces');
+
+[error,cnet] = train(cnet, IpG, Ip

@@ -9,7 +9,7 @@ Ip{1} = input;
        cnet.Layer{it}.Y = num2cell( zeros(1, cnet.Layer{it}.FMapNum) );
        cnet.Layer{it}.X = num2cell( zeros(1, cnet.Layer{it}.FMapNum) );
        
-        figure;
+        %figure;
         for fm = 1:cnet.Layer{it}.FMapNum
             subplot(1,cnet.Layer{it}.FMapNum, fm);
             if cnet.Layer{it}.type == 's'
@@ -35,8 +35,8 @@ Ip{1} = input;
                 cnet.Layer{it}.Y{fm} = cnet.Layer{it}.Y{fm} + cnet.Layer{it}.B{fm};
                 cnet.Layer{it}.X{fm} = feval(cnet.Layer{it}.TransferFunction, cnet.Layer{it}.Y{fm});
             end
-            imshow(cnet.Layer{it}.X{fm},[]);
-            fprintf('size(%d) = (%d, %d)\n', it, size(cnet.Layer{it}.X{fm}));
+            %imshow(cnet.Layer{it}.X{fm},[]);
+            %fprintf('size(%d) = (%d, %d)\n', it, size(cnet.Layer{it}.X{fm}));
         end
         Ip = cnet.Layer{it}.X;
     end
