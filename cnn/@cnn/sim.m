@@ -6,7 +6,9 @@ Ip{1} = input;
 
     for it = 1:cnet.LayersNum
         
-       LH = cnet.Layer{it}.InputHeight
+       cnet.Layer{it}.Y = num2cell( zeros(1, cnet.Layer{it}.FMapNum) );
+       cnet.Layer{it}.X = num2cell( zeros(1, cnet.Layer{it}.FMapNum) );
+       
         figure;
         for fm = 1:cnet.Layer{it}.FMapNum
             subplot(1,cnet.Layer{it}.FMapNum, fm);
@@ -18,7 +20,10 @@ Ip{1} = input;
                 cnet.Layer{it}.Y{fm} = cnet.Layer{it}.W{fm} .* SS + cnet.Layer{it}.B{fm};
                 cnet.Layer{it}.X{fm} = feval(cnet.Layer{it}.TransferFunction, cnet.Layer{it}.Y{fm});
             elseif cnet.Layer{it}.type == 'c'
+                %rozmiar = size(cnet.Layer{it}.Y{fm})
+                
                 for m= find(cnet.Layer{it}.ConMap(fm, :));
+                    %roz2 = size(conv2(Ip{m}, cnet.Layer{it}.W{fm}, 'valid'))
                     cnet.Layer{it}.Y{fm} = cnet.Layer{it}.Y{fm} + conv2(Ip{m}, cnet.Layer{it}.W{fm}, 'valid') ;
                 end
                 cnet.Layer{it}.Y{fm} = cnet.Layer{it}.Y{fm} + cnet.Layer{it}.B{fm};

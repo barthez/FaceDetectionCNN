@@ -75,5 +75,5 @@ cnet = setLayer(cnet, ...
 
 cnet = init(cnet);
 
-[out, cnet] = sim(cnet, double(imread('face001.jpg')));
-imshow(out);
+%[out, cnet] = sim(cnet, double(imread('face001.jpg')));
+%imshow(out);
