@@ -1,0 +1,31 @@
+function [ out, cnet ] = sim( cnet, input )
+%UNTITLED Summary of this function goes here
+%   Detailed explanation goes here
+
+Ip{1} = input;
+
+    for it = 1:cnet.LayersNum
+        for fm = 1:cnet.Layer{it}.FMapNum
+            
+            if cnet.Layer{it}.type == 's'
+                for m=find(cnet.Layer{it}.ConMap(fm, :))
+                   ss = ss + conv2(Ip{m}, ones(cnet.Layer{it}.InputHeight, cnet.Layer{it}.InputWidth));
+                end
+                cnet.Layer{it}.Y{fm} = cnet.Layer{it}.W .* ss + cnet.Layer{it}.B;
+                cnet.Layer{it}.X{fm} = feval(cnet.Layer{it}.TransferFunction, cnet.Layer{it}.Y{fm});
+            elseif cnet.Layer{it}.type == 'c'
+                for m=find(cnet.Layer{it}.ConMap(fm, :))
+                   cnet.Layer{it}.Y{fm} = cnet.Layer{it}.Y{fm} + conv2(Ip{m}, cnet.Layer{it}.W) + cnet.Layer{it}.B;
+                end
+                cnet.Layer{it}.X{fm} = feval(cnet.Layer{it}.TransferFunction, cnet.Layer{it}.Y{fm});
+            elseif cnet.Layer{it}.type == 'n'
+                
+            end
+            Ip = cnet.Layer{it}.X;
+        end
+    end
+    
+    out = cell2mat(Ip);
+
+end
+

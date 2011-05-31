@@ -1,0 +1,13 @@
+ function out = subsample(in, width, height)
+    s = size(in);
+    out = zeros(heig
+    for x = 1:height
+       for y = 1:width
+           startx = height*(x-1) + 1;
+           stopx = height*(x);
+           starty = width*(x-1) + 1;
+           stopy = width*(x);
+           out(x,y) = sum(sum(in(startx:stopx, starty:stopy)));
+       end
+    end
+ end
