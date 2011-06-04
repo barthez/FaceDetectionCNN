@@ -2,14 +2,20 @@ function [ out, cnet ] = sim( cnet, input )
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 
+debug = 0;
+
 Ip{1} = input;
+cnet.Ip{1} = input;
+
+if debug == 1
+    figure;
+end
 
     for it = 1:cnet.LayersNum
         
        cnet.Layer{it}.Y = num2cell( zeros(1, cnet.Layer{it}.FMapNum) );
        cnet.Layer{it}.X = num2cell( zeros(1, cnet.Layer{it}.FMapNum) );
        
-        %figure;
         for fm = 1:cnet.Layer{it}.FMapNum
             
             if cnet.Layer{it}.type == 's'
@@ -24,7 +30,7 @@ Ip{1} = input;
                 
                 for m= find(cnet.Layer{it}.ConMap(fm, :));
                     %roz2 = size(conv2(Ip{m}, cnet.Layer{it}.W{fm}, 'valid'))
-                    cnet.Layer{it}.Y{fm} = cnet.Layer{it}.Y{fm} + conv2(Ip{m}, cnet.Layer{it}.W{fm}, 'valid') ;
+                    cnet.Layer{it}.Y{fm} = cnet.Layer{it}.Y{fm} + conv2(Ip{m}, cnet.Layer{it}.W{fm}(:,:,m), 'valid') ;
                 end
                 cnet.Layer{it}.Y{fm} = cnet.Layer{it}.Y{fm} + cnet.Layer{it}.B{fm};
                 cnet.Layer{it}.X{fm} = feval(cnet.Layer{it}.TransferFunction, cnet.Layer{it}.Y{fm});
@@ -33,11 +39,15 @@ Ip{1} = input;
                     cnet.Layer{it}.Y{fm} = cnet.Layer{it}.Y{fm} + conv2(Ip{m}, cnet.Layer{it}.W{fm}(:,:,m), 'valid');
                 end
                 cnet.Layer{it}.Y{fm} = cnet.Layer{it}.Y{fm} + cnet.Layer{it}.B{fm};
+                %fprintf('layer(%d).fmap(%d).Y = %.3f\n', it, fm, cnet.Layer{it}.Y{fm});
                 cnet.Layer{it}.X{fm} = feval(cnet.Layer{it}.TransferFunction, cnet.Layer{it}.Y{fm});
+                %fprintf('layer(%d).fmap(%d).X = %.3f\n', it, fm, cnet.Layer{it}.X{fm});
             end
-            %subplot(6,cnet.Layer{it}.FMapNum, fm + (it-1)*cnet.Layer{it}.FMapNum);
-            %imshow(cnet.Layer{it}.X{fm},[]);
-            %fprintf('size(%d) = (%d, %d)\n', it, size(cnet.Layer{it}.X{fm}));
+            if debug == 1
+                %fprintf(' - SIM: Layer %d, fMap %2d, Type %c #\n', it, fm, cnet.Layer{it}.type );
+                subplot(6,cnet.Layer{it}.FMapNum, fm + (it-1)*cnet.Layer{it}.FMapNum);
+                imshow(cnet.Layer{it}.X{fm},[]);
+            end
         end
         Ip = cnet.Layer{it}.X;
     end

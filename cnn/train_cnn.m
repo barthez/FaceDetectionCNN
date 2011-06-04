@@ -77,6 +77,13 @@ cnet = setLayer(cnet, ...
 cnet = init(cnet);
 
 %[out, cnet] = sim(cnet, double(imread('face001.jpg')));
+%fprintf('out = %.3f\n', out);
+
+%cnet = adapt(cnet, out -1);
+
+%[out, cnet] = sim(cnet, double(imread('face001.jpg')));
+%fprintf('out = %.3f\n', out);
+
 %imshow(out);
 
 IpG = loadImages('../faces/face');
@@ -84,4 +91,4 @@ IpB = loadImages('../non_faces/img');
 
 [error,cnet] = train(cnet, IpG, IpB);
 
-semilogy(abs(error));
+plot(error);

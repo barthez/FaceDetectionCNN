@@ -22,9 +22,9 @@ while BoostIter < 6
             EPerror( 2*p ) = d;
             
             [out, cnet] = sim(cnet, BadSet{p});
-            d = out - 1;
+            d = out + 1;
             cnet = adapt(cnet, d);
-            EPerror( 2*p -1 ) = out + 1;
+            EPerror( 2*p -1 ) = d;
         end
         BIerror = [BIerror, EPerror];
     end
