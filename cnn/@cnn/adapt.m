@@ -60,8 +60,8 @@ for it = n:-1:1
             for c=find( cnet.Layer{it}.ConMap(f,:) )
                 cnet.Layer{it}.dEdW{f} = cnet.Layer{it}.dEdY{f} .* subsample(cnet.Layer{it -1}.X{c}, cnet.Layer{it}.InputHeight, cnet.Layer{it}.InputWidth); 
             end
-            
-            cnet.Layer{it}.dEdB{f} = cnet.Layer{it}.dEdY{f};
+            cnet.Layer{it}.dEdW{f} = sum(sum(cnet.Layer{it}.dEdW{f}));
+            cnet.Layer{it}.dEdB{f} = sum(sum(cnet.Layer{it}.dEdY{f}));
         elseif cnet.Layer{it}.type == 'c'% Warstwa typu konwolucyjnego
             
             cnet.Layer{it}.dEdW{f} = zeros( size( cnet.Layer{it}.W{f} ) );
@@ -77,7 +77,7 @@ for it = n:-1:1
                 cnet.Layer{it}.dEdW{f}(:,:,c) = conv2(XX{c}, cnet.Layer{it}.dEdY{f}, 'valid' ); 
             end
             
-            cnet.Layer{it}.dEdB{f} = cnet.Layer{it}.dEdY{f};
+            cnet.Layer{it}.dEdB{f} = sum(sum(cnet.Layer{it}.dEdY{f}));
         end
         %fprintf('D = %.5f\n', dd);
         %cnet.Layer{it}.W{f} = cnet.Layer{it}.W{f} + cnet.Layer{it}.teta * cnet.Layer{it}.d{f} * ones( size ( cnet.Layer{it}.W{f} ) );

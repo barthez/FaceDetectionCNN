@@ -1,6 +1,7 @@
+close all;
 clc;
 
-cnet = cnn(6, 60);
+cnet = cnn(6, 10);
 
 cnet = setLayer(cnet, ...
                 1, ... % NUmer Warstwy
@@ -76,9 +77,18 @@ cnet = setLayer(cnet, ...
 cnet = init(cnet);
 
 %[out, cnet] = sim(cnet, double(imread('face001.jpg')));
+%fprintf('out = %.3f\n', out);
+
+%cnet = adapt(cnet, out -1);
+
+%[out, cnet] = sim(cnet, double(imread('face001.jpg')));
+%fprintf('out = %.3f\n', out);
+
 %imshow(out);
 
-IpG = loadImages('../faces');
-IpB = loadImages('../non-faces');
+IpG = loadImages('../faces/face', );
+IpB = loadImages('../non_faces/img');
 
-[error,cnet] = train(cnet, IpG, Ip
+[error,cnet] = train(cnet, IpG, IpB);
+
+plot(error);

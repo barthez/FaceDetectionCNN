@@ -2,7 +2,7 @@ function [ error, cnet ] = train( cnet, IpG, IpB)
 %TRAIN Summary of this function goes here
 %   Detailed explanation goes here
 
-BoostIter = 0;
+BoostIter = 5;
 ThrFa = 0.8;
 error= [];
 while BoostIter < 6
