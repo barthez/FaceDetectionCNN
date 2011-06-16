@@ -177,6 +177,41 @@ wejściowym a wektorem wag, do czego później dodawany jest jeszcze bias. Powst
 przepuszczana przez funkcję tangensa hiperbolicznego, po to,by wyjście z neuronu stanowila liczba z zakresu $(-1,1).$\\
 Wyjście z ostatniej warstwy  \textbf{N2} jest używana do klasyfikacji obrazu jako twarz (result>0) lub nie-twarz (result<0).
 Warstwy  \textbf{N1} i  \textbf{N2} mają zatem odpowiednio 602(14x43) i 15 trenowalnych zmiennych.\\
+
+\subsection{Trenowanie sieci}
+\indent
+Stworzyliśmy zestaw szkoleniowy wybierając ponad 800 obrazków zawierających twarze i nie-twarze. 
+Zdjęcia pozyskaliśmy przeważnie z internetowych baz danych ktore udostepniały twarze w różnych perspektywach.
+Naszym zadaniem bylo ich wyselekcjonowanie i odpowiednie przycięcie, tak by do sieci neuronowej wprowadzić 
+jasno i czytelnie które zdjęcia powinien zakwalifikować jako twarz, a które nie. Zdjęcia staralismy sie takze dobierać w ten
+sposób aby skutycznie wyłapać różne cechy na obrazach, tak aby nasz system stał się jak najbardziej niezawodny i aby 
+wykrywał twarze z jak największą skutecznościa.\\
+\indent
+Sam proces przycinania obrazków polegał na tym, aby obrazek przeskalować, bądź przyciąc do wielkości 32x36px. Przy czym
+głownym celem było to, aby usta i oczy wybanych osób znajdowały sie na każdym obrazie mniej więcej w tym samym miejscu.
+Odległość pomiędzy ustami a oczami jest bowiem znacząca, ponieważ pozwala ona na zachowanie odpowiednich proporcji twarzy.
+Proporcje te to : odległość między oczami (około 16px), a między oczami i ustami (18px).\\
+\indent
+Zbieranie zbioru nie-twarzy okazało się o wiele trudniejsze niż sądziliśmy. Praktycznie każdy obraz nie zawierający twarzy
+mógłby posłużyc jako obraz testowy. Jednak w tym wypadku proces testowania jest mniej dokladny. Większą dokladnośc
+uzyskuje się podczas testowania obrazków które nie są twarzami, ale je znacząco przypominają. Jednak taki zbiór obrazów
+jest z oczywistych względów bardzo trudny do pozyskania, przez co posłużyliśmy sie do testów obrazami losowo wyciętymi
+z większych zdjęć przedstawiających krajobrazy. \\\\
+\indent
+Sam proces trenowania przedstawia się natomiast w następujących krokach:
+ \begin{enumerate}
+\item Stworzenie zbioru 400 obrazów przedstawiających twarz i 400 nie zawierających jej.
+\item Ustawienie zmiennych: BootsIter = 0
+\item Wybranie spośród zbioru utworzonego w (1) twarzy po 300 obrazów z twarzą i 300 bez.
+\item Trenowanie sieci przez około 20 trenowalnych epok. W każdej epoce używana jest taka sama liczba pozytywnych
+i negatywnych przykładów.
+\item Inkrementacja zmiennej BootsIter = BootsIter+1;
+\item Jeśli BootsIter < 6 to idź do (3)
+\item Trenowanie sieci przez kolejne 20 epok, ale już dla całego zbioru obazów.
+ \end{enumerate}
+
+Przedstawiony wyżej algorytm został zaczerpnięty z [1]. 
+
 %=================================================
 \section{Rezultaty i wnioski}
 
@@ -185,7 +220,12 @@ Warstwy  \textbf{N1} i  \textbf{N2} mają zatem odpowiednio 602(14x43) i 15 tren
 
 %=================================================
 \section{Literatura}
-
+ \begin{enumerate}
+\item Convolutional Face Finder: A Neural Architecture for Fast and Robust Face Detection, Christophe Garcia and Manolis Delakis
+\item Convolutional neural networks for image processing, Matthw Browne, Saeed Shiry Ghidary
+\item An Embedded Robust Facial Feature Detector, Sebastien Roux, Christophe Garcia
+\item Sieci Neuronowe, Ryszard Tadeusiewicz
+ \end{enumerate}
 %=================================================
 \section{Dodatek A: Opis narzędzi i metod postępowania}
 \section{Dodatek A: Opis realizacji rozwiązania}
