@@ -1,4 +1,4 @@
-full_img=rgb2gray(imread('nature.jpg'));
+full_img=rgb2gray(imread('natura.jpg'));
 %imshow(full_img);
 width=32;
 height=36;
@@ -20,12 +20,15 @@ if mod(r,height)~=0,
     rows=[rows mod(r,height)];
 end
 sum(rows)
-slices=mat2cell(full_img,rows,cols)
+slices=mat2cell(full_img,rows,cols);
 mkdir('slices');
 for i=1:size(slices,1),
    for j=1:size(slices,2),
     if size(slices{i,j})==[height,width], %sprawdzam czy slice jest ca³y
-      imwrite(slices{i,j},sprintf('slices/slice%02dx%02d.bmp', i,j),'bmp');
+       %mean(mean( slices{i,j} ))
+       if std2(slices{i,j} ) > 10
+        imwrite(slices{i,j},sprintf('slices/slice%02dx%02d.bmp', i,j),'bmp');
+       end
     end
    end
 end

@@ -1,0 +1,22 @@
+function [ cnet ] = init( cnet )
+%INIT Summary of this function goes here
+%   Detailed explanation goes here
+        for it = 1:cnet.LayersNum
+       
+       for fm = 1:cnet.Layer{it}.FMapNum
+           if
+           cnet.Layer{it}.W{fm} = rand_std(cnet.Layer{it}.InputHeight, ...
+                                           cnet.Layer{it}.InputWidth, ...
+                                           cnet.Layer{it}.FMapNum);
+           cnet.Layer{it}.B{fm} = rand_std(1, ...
+                                       1, ...
+                                       cnet.Layer{it}.FMapNum);
+       end
+       
+       cnet.Layer{it}.Y = cell(1, cnet.Layer{it}.FMapNum);
+       cnet.Layer{it}.X = cell(1, cnet.Layer{it}.FMapNum);
+       
+    end
+
+end
+

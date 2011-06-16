@@ -25,7 +25,7 @@ function cnet = init(cnet)
     cnet.SLayer{1}.FMapHeight = floor(cnet.InputHeight/r);
     
     %For now only single image input is valid
-    cnet.SLayer{1}.numFMaps = 1; 
+    cnet.SLayer{1}.numFMaps = 1;
     
     %For all layers except output
 for k=2:(cnet.numLayers-cnet.numFLayers)

@@ -1,0 +1,92 @@
+function [ cnet ] = adapt( cnet, d )
+%ADAPT Summary of this function goes here
+%   Detailed explanation goes here
+
+n = cnet.LayersNum;
+
+
+                %fprintf('size X = (%d, %d)\n', size() );
+                
+                
+for it = n:-1:1
+    for f = 1:cnet.Layer{it}.FMapNum
+        fprintf('--------------------- Layer %d, fMap %2d, Type %c ---------------------\n', it, f, cnet.Layer{it}.type );
+        cnet.Layer{it}.dEdX{f} = 0.0;
+        if n == it
+            cnet.Layer{it}.dEdX{f} = mse('dy' , d, cnet.Layer{it}.Y{f}, cnet.Layer{it}.X{f}, 'mse');
+        else
+            for c=find( cnet.Layer{it+1}.ConMap(:,f) )'
+                c
+                if cnet.Layer{it+1}.type == 'n'
+                    cnet.Layer{it}.dEdX{f} = cnet.Layer{it}.dEdX{f} + cnet.Layer{it+1}.W{c}(:,:,f) .* cnet.Layer{it+1}.dEdY{c}; 
+                elseif cnet.Layer{it+1}.type == 's'
+                    
+                    cnet.Layer{it}.dEdX{f} = cnet.Layer{it}.dEdX{f} + ...
+                        subsample( cnet.Layer{it+1}.W{c} .* cnet.Layer{it+1}.dEdY{c}, ...
+                                   cnet.Layer{it+1}.InputHeight, ...
+                                   cnet.Layer{it+1}.InputWidth, ...
+                                   0);
+                elseif cnet.Layer{it+1}.type == 'c'
+                    cnet.Layer{it}.dEdX{f} = cnet.Layer{it}.dEdX{f} + ...
+                        conv2(cnet.Layer{it+1}.dEdY{c}, ...
+                              cnet.Layer{it+1}.W{c}(:,:,f), ...
+                              'full');
+                end
+            end
+            fprintf('size X = (%d, %d)\n', size(cnet.Layer{it}.X{f}) );
+            fprintf('size dEdX = (%d, %d)\n', size(cnet.Layer{it}.dEdX{f}) );
+        end
+
+        cnet.Layer{it}.dXdY{f} = feval(cnet.Layer{it}.TransferFunction,'dn',cnet.Layer{it}.Y{f},cnet.Layer{it}.X{f});
+            
+        cnet.Layer{it}.dEdY{f} = cnet.Layer{it}.dXdY{f}.*cnet.Layer{it}.dEdX{f};
+            
+        
+        if cnet.Layer{it}.type == 'n' % Warstwa typu N
+                     
+            
+            cnet.Layer{it}.dEdW{f} = zeros( size( cnet.Layer{it}.W{f} ) );
+            for c=find( cnet.Layer{it}.ConMap(f,:) )
+                cnet.Layer{it}.dEdW{f}(:,:,c) = cnet.Layer{it}.dEdY{f} .* cnet.Layer{it -1}.X{c}; 
+            end
+            
+            cnet.Layer{it}.dEdB{f} = cnet.Layer{it}.dEdY{f};
+            
+        elseif cnet.Layer{it}.type == 's'  % Warstwa subsamplingu
+
+           
+            
+            cnet.Layer{it}.dEdW{f} = zeros( size( cnet.Layer{it}.W{f} ) );
+
+            for c=find( cnet.Layer{it}.ConMap(f,:) )
+                cnet.Layer{it}.dEdW{f} = cnet.Layer{it}.dEdY{f} .* subsample(cnet.Layer{it -1}.X{c}, cnet.Layer{it}.InputHeight, cnet.Layer{it}.InputWidth); 
+            end
+            
+            cnet.Layer{it}.dEdB{f} = cnet.Layer{it}.dEdY{f};
+        elseif cnet.Layer{it}.type == 'c'% Warstwa typu konwolucyjnego
+            
+            cnet.Layer{it}.dEdW{f} = zeros( size( cnet.Layer{it}.W{f} ) );
+
+            for c=find( cnet.Layer{it}.ConMap(f,:) )
+                cnet.Layer{it}.dEdW{f} = conv2(cnet.Layer{it -1}.X{c}, cnet.Layer{it}.dEdY{f}, 'valid' ); 
+            end
+            
+            cnet.Layer{it}.dEdB{f} = cnet.Layer{it}.dEdY{f};
+        end
+        %fprintf('D = %.5f\n', dd);
+        %cnet.Layer{it}.W{f} = cnet.Layer{it}.W{f} + cnet.Layer{it}.teta * cnet.Layer{it}.d{f} * ones( size ( cnet.Layer{it}.W{f} ) );
+    end
+   
+end
+
+for it=1:n
+    for f = 1:cnet.Layer{it}.FMapNum
+       if cnet.Layer{it}.type == 'n' % To usun¹æ jak skoñczê
+       cnet.Layer{it}.W{f} = cnet.Layer{it}.W{f} - cnet.Layer{it}.dEdW{f};
+       cnet.Layer{it}.B{f} = cnet.Layer{it}.B{f} - cnet.Layer{it}.dEdB{f};
+       end
+    end
+end
+
+end
+

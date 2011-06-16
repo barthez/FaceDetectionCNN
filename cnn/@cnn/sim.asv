@@ -1,0 +1,43 @@
+function [ out, cnet ] = sim( cnet, input )
+%UNTITLED Summary of this function goes here
+%   Detailed explanation goes here
+
+Ip{1} = input;
+
+    for it = 1:cnet.LayersNum
+        
+       LH = cnet.Layer{it}.InputHeight
+        figure;
+        for fm = 1:cnet.Layer{it}.FMapNum
+            subplot(1,cnet.Layer{it}.FMapNum, fm);
+            if cnet.Layer{it}.type == 's'
+                SS = 0;
+                for m=find(cnet.Layer{it}.ConMap(fm, :))
+                   SS = SS + subsample(Ip{m}, cnet.Layer{it}.InputHeight, cnet.Layer{it}.InputWidth);
+                end
+                cnet.Layer{it}.Y{fm} = cnet.Layer{it}.W{fm} .* SS + cnet.Layer{it}.B{fm};
+                cnet.Layer{it}.X{fm} = feval(cnet.Layer{it}.TransferFunction, cnet.Layer{it}.Y{fm});
+            elseif cnet.Layer{it}.type == 'c'
+                size(cnet.Layer{it}.Y{fm});
+                for m= find(cnet.Layer{it}.ConMap(fm, :));
+                    cnet.Layer{it}.Y{fm} = cnet.Layer{it}.Y{fm} + conv2(Ip{m}, cnet.Layer{it}.W{fm}, 'valid') ;
+                end
+                cnet.Layer{it}.Y{fm} = cnet.Layer{it}.Y{fm} + cnet.Layer{it}.B{fm};
+                cnet.Layer{it}.X{fm} = feval(cnet.Layer{it}.TransferFunction, cnet.Layer{it}.Y{fm});
+            elseif cnet.Layer{it}.type == 'n'
+                for m= find(cnet.Layer{it}.ConMap(fm, :));
+                    cnet.Layer{it}.Y{fm} = cnet.Layer{it}.Y{fm} + conv2(Ip{m}, cnet.Layer{it}.W{fm}(:,:,m), 'valid');
+                end
+                cnet.Layer{it}.Y{fm} = cnet.Layer{it}.Y{fm} + cnet.Layer{it}.B{fm};
+                cnet.Layer{it}.X{fm} = feval(cnet.Layer{it}.TransferFunction, cnet.Layer{it}.Y{fm});
+            end
+            imshow(cnet.Layer{it}.X{fm},[]);
+            fprintf('size(%d) = (%d, %d)\n', it, size(cnet.Layer{it}.X{fm}));
+        end
+        Ip = cnet.Layer{it}.X;
+    end
+    
+    out = cell2mat(Ip);
+
+end
+
