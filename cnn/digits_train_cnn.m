@@ -88,8 +88,8 @@ cnet = init(cnet);
 %imshow(out);
 
 IpG = loadImages('../cyfry/%02d.bmp', 59 );
-for t=1:50
-    IpB{t} = double( (t/50) * ones(36,32));
+for t=1:100
+    IpB{t} = double( (t/100) * ones(36,32));
 end
 
 [error,cnet] = train(cnet, IpG, IpB);

@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2011.4.5)  30 MAY 2011 22:07
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2011.6.16)  16 JUN 2011 23:35
 entering extended mode
-**sprawozdanie.tex
-(C:\Users\Krzychu\Desktop\Dokumentacja\sprawozdanie.tex
+**C:/Documents*and*Settings/Tsm/FaceDetectionCNN/sprawozdanie.tex
+("C:/Documents and Settings/Tsm/FaceDetectionCNN/sprawozdanie.tex"
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -331,7 +331,14 @@ File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
-File: pdftex.def 2011/01/28 v0.05d Graphics/color for pdfTeX
+File: pdftex.def 2011/04/25 v0.06b Graphics/color for pdfTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
+)
 \Gread@gobject=\count88
 ))
 \Gin@req@height=\dimen108
@@ -343,198 +350,45 @@ Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
-Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
-)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
-Package: grfext 2007/09/30 v1.0 Managing graphics extensions (HO)
-)
+Package: grfext 2010/08/19 v1.1 Managing graphics extensions (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvdefinekeys.sty"
+Package: kvdefinekeys 2011/04/07 v1.3 Defining keys (HO)
+))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
-Package: kvoptions 2010/02/22 v3.7 Keyval support for LaTeX options (HO)
+Package: kvoptions 2010/12/23 v3.10 Keyval support for LaTeX options (HO)
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty"
-Package: kvsetkeys 2010/03/01 v1.9 Key value parser (HO)
+Package: kvsetkeys 2011/04/07 v1.13 Key value parser (HO)
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
-Package: etexcmds 2010/01/28 v1.3 Prefix for e-TeX command names (HO)
+Package: etexcmds 2011/02/16 v1.5 Prefix for e-TeX command names (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
 (etexcmds)             that some package has redefined \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 )))
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
-Package: pdftexcmds 2010/04/01 v0.9 Utility functions of pdfTeX for LuaTeX (HO)
+Package: pdftexcmds 2011/04/22 v0.16 Utilities of pdfTeX for LuaTeX (HO)
 
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
-Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
-Package: ltxcmds 2010/04/26 v1.7 LaTeX kernel commands for general use (HO)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
 )
 Package grfext Info: Graphics extension search list:
 (grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 436.
+(grfext)             \AppendGraphicsExtensions on input line 452.
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\anysize.sty"
-Package: anysize 1994/08/13 1.0 Contributed LaTeX2e package
-
-Package: `anysize' 1.0 <1994/08/13>
-\@Leftmargin=\dimen110
-\@Rightmargin=\dimen111
-\@Topmargin=\dimen112
-\@Bottommargin=\dimen113
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\base\makeidx.sty"
-Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
-)
-\@indexfile=\write3
-
-Writing index file sprawozdanie.idx
-No file sprawozdanie.aux.
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 68.
-("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
-File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-(C:\Users\Krzychu\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count89
-\scratchdimen=\dimen114
-\scratchbox=\box26
-\nofMPsegments=\count90
-\nofMParguments=\count91
-\everyMPshowfont=\toks17
-\MPscratchCnt=\count92
-\MPscratchDim=\dimen115
-\MPnumerator=\count93
-\everyMPtoPDFconversion=\toks18
-)
-Package epstopdf Info: Source file: <agh.eps>
-(epstopdf)                    date: 2011-05-27 11:57:18
-(epstopdf)                    size: 321804 bytes
-(epstopdf)             Output file: <agh-eps-converted-to.pdf>
-(epstopdf)             Command: <epstopdf --outfile=agh-eps-converted-to.pdf ag
-h.eps>
-(epstopdf)             \includegraphics on input line 70.
-runsystem(epstopdf --outfile=agh-eps-converted-to.pdf agh.eps)...executed (allo
-wed).
-
-Package epstopdf Info: Result file: <agh-eps-converted-to.pdf>
-(epstopdf)                    date: 2011-05-30 22:07:28
-(epstopdf)                    size: 3601 bytes.
- <agh-eps-converted-to.pdf, id=1, 64.24pt x 124.465pt>
-File: agh-eps-converted-to.pdf Graphic file (type pdf)
-
-<use agh-eps-converted-to.pdf> [1
-
-{C:/Users/Krzychu/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/
-Krzychu/Desktop/Dokumentacja/agh-eps-converted-to.pdf>]
-No file sprawozdanie.ind.
-<neuron.png, id=10, 80.55093pt x 155.83218pt>
-File: neuron.png Graphic file (type png)
- <use neuron.png>
-<neuron2.png, id=11, 383.93437pt x 166.37157pt>
-File: neuron2.png Graphic file (type png)
- <use neuron2.png>
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 102.
-
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
-File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 102.
-
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
-File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 102
-.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
-File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 102
-.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
-File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 102.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 102.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 102.
-
-
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 105.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--118
-
- []
-
-<schemat.png, id=12, 673.76718pt x 396.7322pt>
-File: schemat.png Graphic file (type png)
- <use schemat.png>
-Overfull \hbox (16.3897pt too wide) in paragraph at lines 121--123
-[]
- []
-
-[2 <C:/Users/Krzychu/Desktop/Dokumentacja/neuron.png (PNG copy)> <C:/Users/Krzy
-chu/Desktop/Dokumentacja/neuron2.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 124--159
-
- []
-
-[3 <C:/Users/Krzychu/Desktop/Dokumentacja/schemat.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 162--181
-
- []
-
-[4] [5] (C:\Users\Krzychu\Desktop\Dokumentacja\sprawozdanie.aux) ) 
-Here is how much of TeX's memory you used:
- 2321 strings out of 494053
- 30528 string characters out of 3148598
- 87181 words of memory out of 3000000
- 5557 multiletter control sequences out of 15000+200000
- 36724 words of font info for 33 fonts, out of 3000000 for 9000
- 715 hyphenation exceptions out of 8191
- 41i,5n,24p,285b,207s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program F
-iles/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX 2.9/f
-onts/enc/dvips/lm/lm-mathex.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm
-/lm-ec.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Progra
-m Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}<C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/lm/lmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
-lic/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmex10.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi10.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/l
-mr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr17.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/lm/lmsy10.pfb>
-Output written on sprawozdanie.pdf (5 pages, 321060 bytes).
-PDF statistics:
- 71 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
-

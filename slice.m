@@ -1,4 +1,4 @@
-full_img=rgb2gray(imread('natura.jpg'));
+full_img=rgb2gray(imread('tla.bmp'));
 %imshow(full_img);
 width=32;
 height=36;
