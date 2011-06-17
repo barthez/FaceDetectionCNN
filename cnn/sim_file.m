@@ -1,4 +1,4 @@
-test = reshape(mapstd(reshape(double(imread('../cyfry_test/test2.bmp')),1,[])),480,640);
+test = reshape(mapstd(reshape(double(imread('../faces_test/test0.bmp')),1,[])),480,640); %'../faces_test/test3.bmp'
 
 [out,cnet] = sim(cnet, test);
 

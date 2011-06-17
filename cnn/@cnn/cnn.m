@@ -2,6 +2,12 @@ function cnet = cnn( Layers, Epochs )
 %CNN Summary of this function goes here
 %   Detailed explanation goes here
 
+if ( nargin == 1 &&  isstruct(Layers) )
+    cnet = cless(Layers, 'cnn');
+    return
+end
+
+
 cnet.epochs = Epochs;
 cnet.LayersNum = Layers;
 cnet.Ip{1} = 1;
