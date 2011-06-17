@@ -6,6 +6,7 @@ t_out = ones(120,160) * min(min(out));
 t_out(5:116,5:157) = out;
 pos = im2bw(subsample(t_out,4,4,0),0.9);
 
+figure();
 subplot(1,2,1);
 imshow(pos, []);
 subplot(1,2,2);
