@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2011.4.5)  17 JUN 2011 00:31
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2011.6.17)  17 JUN 2011 23:21
 entering extended mode
-**sprawozdanie.tex
-(C:\Users\Krzychu\Desktop\Dokumentacja\sprawozdanie.tex
+**D:/FaceDetectionCNN/doc/sprawozdanie.tex
+(D:/FaceDetectionCNN/doc/sprawozdanie.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -13,9 +13,9 @@ an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese,
 romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
 sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
 senglishmax, welsh, loaded.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
+("D:\Program Files\MikTex2_9\tex\latex\base\article.cls"
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\size11.clo"
+("D:\Program Files\MikTex2_9\tex\latex\base\size11.clo"
 File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -30,19 +30,19 @@ File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+("D:\Program Files\MikTex2_9\tex\latex\base\inputenc.sty"
 Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\utf8.def"
+("D:\Program Files\MikTex2_9\tex\latex\base\utf8.def"
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
+("D:\Program Files\MikTex2_9\tex\latex\base\t1enc.dfu"
 File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -192,7 +192,7 @@ File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
+("D:\Program Files\MikTex2_9\tex\latex\base\ot1enc.dfu"
 File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -223,7 +223,7 @@ File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
+("D:\Program Files\MikTex2_9\tex\latex\base\omsenc.dfu"
 File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
@@ -247,26 +247,26 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
+("D:\Program Files\MikTex2_9\tex\latex\base\fontenc.sty"
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.def"
+("D:\Program Files\MikTex2_9\tex\latex\base\t1enc.def"
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 ))
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
+("D:\Program Files\MikTex2_9\tex\generic\babel\babel.sty"
 Package: babel 2008/07/06 v3.8l The Babel package
 
 *************************************
 * Local config file bblopts.cfg used
 *
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
+("D:\Program Files\MikTex2_9\tex\latex\00miktex\bblopts.cfg"
 File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\polish.ldf"
+("D:\Program Files\MikTex2_9\tex\generic\babel\polish.ldf"
 Language: polish 2005/03/31 v1.2l Polish support from the babel system
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
+("D:\Program Files\MikTex2_9\tex\generic\babel\babel.def"
 File: babel.def 2008/07/06 v3.8l Babel common definitions
 \babel@savecnt=\count87
 \U@D=\dimen103
@@ -277,7 +277,7 @@ Package babel Info: Making " an active character on input line 83.
 \pl@right=\dimen106
 \pl@temp=\dimen107
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\lm\lmodern.sty"
+("D:\Program Files\MikTex2_9\tex\latex\lm\lmodern.sty"
 Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
@@ -312,65 +312,65 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+("D:\Program Files\MikTex2_9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+("D:\Program Files\MikTex2_9\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks16
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+("D:\Program Files\MikTex2_9\tex\latex\graphics\graphics.sty"
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+("D:\Program Files\MikTex2_9\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+("D:\Program Files\MikTex2_9\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+("D:\Program Files\MikTex2_9\tex\latex\pdftex-def\pdftex.def"
 File: pdftex.def 2011/01/28 v0.05d Graphics/color for pdfTeX
 \Gread@gobject=\count88
 ))
 \Gin@req@height=\dimen108
 \Gin@req@width=\dimen109
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf.sty"
+("D:\Program Files\MikTex2_9\tex\latex\oberdiek\epstopdf.sty"
 Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+("D:\Program Files\MikTex2_9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+("D:\Program Files\MikTex2_9\tex\generic\oberdiek\infwarerr.sty"
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+("D:\Program Files\MikTex2_9\tex\latex\oberdiek\grfext.sty"
 Package: grfext 2007/09/30 v1.0 Managing graphics extensions (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+("D:\Program Files\MikTex2_9\tex\latex\oberdiek\kvoptions.sty"
 Package: kvoptions 2010/02/22 v3.7 Keyval support for LaTeX options (HO)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty"
+("D:\Program Files\MikTex2_9\tex\generic\oberdiek\kvsetkeys.sty"
 Package: kvsetkeys 2010/03/01 v1.9 Key value parser (HO)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
+("D:\Program Files\MikTex2_9\tex\generic\oberdiek\etexcmds.sty"
 Package: etexcmds 2010/01/28 v1.3 Prefix for e-TeX command names (HO)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
 (etexcmds)             that some package has redefined \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 )))
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
+("D:\Program Files\MikTex2_9\tex\generic\oberdiek\pdftexcmds.sty"
 Package: pdftexcmds 2010/04/01 v0.9 Utility functions of pdfTeX for LuaTeX (HO)
 
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
+("D:\Program Files\MikTex2_9\tex\generic\oberdiek\ifluatex.sty"
 Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+("D:\Program Files\MikTex2_9\tex\generic\oberdiek\ltxcmds.sty"
 Package: ltxcmds 2010/04/26 v1.7 LaTeX kernel commands for general use (HO)
 )
 Package pdftexcmds Info: LuaTeX not detected.
@@ -382,7 +382,7 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 436.
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\anysize.sty"
+("D:\Program Files\MikTex2_9\tex\latex\ltxmisc\anysize.sty"
 Package: anysize 1994/08/13 1.0 Contributed LaTeX2e package
 
 Package: `anysize' 1.0 <1994/08/13>
@@ -390,13 +390,13 @@ Package: `anysize' 1.0 <1994/08/13>
 \@Rightmargin=\dimen111
 \@Topmargin=\dimen112
 \@Bottommargin=\dimen113
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\base\makeidx.sty"
+) ("D:\Program Files\MikTex2_9\tex\latex\base\makeidx.sty"
 Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
 )
 \@indexfile=\write3
 
 Writing index file sprawozdanie.idx
-(C:\Users\Krzychu\Desktop\Dokumentacja\sprawozdanie.aux)
+(D:\FaceDetectionCNN\doc\sprawozdanie.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
 LaTeX Font Info:    ... okay on input line 65.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 65.
@@ -411,10 +411,10 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 65.
 LaTeX Font Info:    ... okay on input line 65.
 LaTeX Font Info:    Try loading font information for T1+lmr on input line 65.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
+("D:\Program Files\MikTex2_9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-(C:\Users\Krzychu\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
+("D:\Program Files\MikTex2_9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count89
 \scratchdimen=\dimen114
@@ -428,10 +428,10 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 \everyMPtoPDFconversion=\toks18
 )
 Package epstopdf Info: Source file: <agh.eps>
-(epstopdf)                    date: 2011-05-27 11:57:18
+(epstopdf)                    date: 2011-05-27 11:43:41
 (epstopdf)                    size: 321804 bytes
 (epstopdf)             Output file: <agh-eps-converted-to.pdf>
-(epstopdf)                    date: 2011-05-30 22:07:28
+(epstopdf)                    date: 2011-06-17 20:40:18
 (epstopdf)                    size: 3601 bytes
 (epstopdf)             Command: <epstopdf --outfile=agh-eps-converted-to.pdf ag
 h.eps>
@@ -451,24 +451,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 67--67
  []
 
 LaTeX Font Info:    Try loading font information for OT1+lmr on input line 67.
-("C:\Program Files\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
+("D:\Program Files\MikTex2_9\tex\latex\lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Try loading font information for OML+lmm on input line 67.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
+("D:\Program Files\MikTex2_9\tex\latex\lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 67.
 
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
+("D:\Program Files\MikTex2_9\tex\latex\lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Try loading font information for OMX+lmex on input line 67.
 
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
+("D:\Program Files\MikTex2_9\tex\latex\lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -479,8 +479,8 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 67.
  [1
 
-{C:/Users/Krzychu/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/
-Krzychu/Desktop/Dokumentacja/agh-eps-converted-to.pdf>]
+{C:/Users/Tsm/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <D:/FaceDetect
+ionCNN/doc/agh-eps-converted-to.pdf>]
 No file sprawozdanie.ind.
 <neuron.png, id=12, 80.55093pt x 155.83218pt>
 File: neuron.png Graphic file (type png)
@@ -510,13 +510,13 @@ Overfull \hbox (16.3897pt too wide) in paragraph at lines 117--119
 []
  []
 
-[1 <C:/Users/Krzychu/Desktop/Dokumentacja/neuron.png (PNG copy)> <C:/Users/Krzy
-chu/Desktop/Dokumentacja/neuron2.png (PNG copy)>]
+[1 <D:/FaceDetectionCNN/doc/neuron.png (PNG copy)> <D:/FaceDetectionCNN/doc/neu
+ron2.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 120--155
 
  []
 
-[2 <C:/Users/Krzychu/Desktop/Dokumentacja/schemat.png (PNG copy)>]
+[2 <D:/FaceDetectionCNN/doc/schemat.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 158--176
 
  []
@@ -534,35 +534,49 @@ File: test1.png Graphic file (type png)
  <use test1.png>
 <wynik.png, id=39, 482.55281pt x 359.84438pt>
 File: wynik.png Graphic file (type png)
- <use wynik.png> [5 <C:/Users/Krzychu/Desktop/Dokumentacja/wykres.png (PNG copy
-)> <C:/Users/Krzychu/Desktop/Dokumentacja/test1.png> <C:/Users/Krzychu/Desktop/
-Dokumentacja/wynik.png (PNG copy)>] [6] (C:\Users\Krzychu\Desktop\Dokumentacja\
-sprawozdanie.aux) ) 
+ <use wynik.png> [5 <D:/FaceDetectionCNN/doc/wykres.png (PNG copy)> <D:/FaceDet
+ectionCNN/doc/test1.png> <D:/FaceDetectionCNN/doc/wynik.png (PNG copy)>]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 271.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 271.
+
+Overfull \hbox (24.76265pt too wide) in paragraph at lines 271--271
+[][]\T1/lmr/m/n/9 opis pro-jektu oraz pliki do-st¦pne pod ad-re-sem https://sit
+es.google.com/site/mihailsirotenko/projects/convolutional-
+ []
+
+<matlab.png, id=44, 811.03pt x 688.5725pt>
+File: matlab.png Graphic file (type png)
+ <use matlab.png> [6] [7 <D:/FaceDetectionCNN/doc/matlab.png (PNG copy)>] [8]
+(D:\FaceDetectionCNN\doc\sprawozdanie.aux) ) 
 Here is how much of TeX's memory you used:
- 2363 strings out of 494053
- 31174 string characters out of 3148598
+ 2388 strings out of 494053
+ 31215 string characters out of 3149012
  89143 words of memory out of 3000000
- 5588 multiletter control sequences out of 15000+200000
- 61677 words of font info for 46 fonts, out of 3000000 for 9000
+ 5603 multiletter control sequences out of 15000+200000
+ 77841 words of font info for 55 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 41i,5n,24p,285b,327s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.en
-c}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Program Fil
-es/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
-nc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit
-.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/lm/lmcsc10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/lm/lmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi10.pfb>
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr
-17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/lm/lmsy10.pfb>
-Output written on sprawozdanie.pdf (7 pages, 393739 bytes).
+ 41i,8n,24p,1171b,327s stack positions out of 5000i,500n,10000p,200000b,50000s
+{D:/Program Files/MikTex2_9/fonts/e
+nc/dvips/lm/lm-ec.enc}{D:/Program Files/MikTex2_9/fonts/enc/dvips/lm/lm-mathsy.
+enc}{D:/Program Files/MikTex2_9/fonts/enc/dvips/lm/lm-mathex.enc}{D:/Program Fi
+les/MikTex2_9/fonts/enc/dvips/lm/lm-rm.enc}{D:/Program Files/MikTex2_9/fonts/en
+c/dvips/lm/lm-mathit.enc}<D:/Program Files/MikTex2_9/fonts/type1/public/lm/lmbx
+10.pfb><D:/Program Files/MikTex2_9/fonts/type1/public/lm/lmbx12.pfb><D:/Program
+ Files/MikTex2_9/fonts/type1/public/lm/lmcsc10.pfb><D:/Program Files/MikTex2_9/
+fonts/type1/public/lm/lmex10.pfb><D:/Program Files/MikTex2_9/fonts/type1/public
+/lm/lmmi10.pfb><D:/Program Files/MikTex2_9/fonts/type1/public/lm/lmmi8.pfb><D:/
+Program Files/MikTex2_9/fonts/type1/public/lm/lmr10.pfb><D:/Program Files/MikTe
+x2_9/fonts/type1/public/lm/lmr12.pfb><D:/Program Files/MikTex2_9/fonts/type1/pu
+blic/lm/lmr17.pfb><D:/Program Files/MikTex2_9/fonts/type1/public/lm/lmr6.pfb><D
+:/Program Files/MikTex2_9/fonts/type1/public/lm/lmr8.pfb><D:/Program Files/MikT
+ex2_9/fonts/type1/public/lm/lmr9.pfb><D:/Program Files/MikTex2_9/fonts/type1/pu
+blic/lm/lmri10.pfb><D:/Program Files/MikTex2_9/fonts/type1/public/lm/lmsy10.pfb
+>
+Output written on sprawozdanie.pdf (9 pages, 573821 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
+ 109 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
