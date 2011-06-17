@@ -11,10 +11,9 @@
 
 
 %\def\projectsymbol
-
-\newcommand{\maketitlepage}{
-\titlepage
-
+\makeatletter
+\renewcommand{\maketitle}{
+\begin{titlepage}
 \begin{center}
 
 \LARGE{AKADEMIA GÓRNICZO-HUTNICZA}
@@ -25,50 +24,47 @@
 
 \LARGE{im. Stanisława Staszica w Krakowie}
 
-\rule{\textwidth}{0.2mm}
+\rule{\textwidth}{0.4mm}
+\LARGE \textsc{\@title}
+\rule{\textwidth}{0.4mm}
 
 \vspace*{5mm}
+\begin{flushright}
+
+    \begin{minipage}{5cm}
+
+    \textit{\small Autorzy:}\\
+    \normalsize \textsc{\@author} \par
+
+    \end{minipage}
+
+\end{flushright}
+\vspace*{\stretch{8}}
+\rule{\textwidth}{0.4mm}
 
 \large{Wydział Elektroniki, Automatyki, Informatyki i Elektrotechniki}\\
 \large{Katedra Automatyki}\\
 \large{Laboratorium Biocybernetyki}\\
+\vspace*{\stretch{7}}
+\@date
 
-\vspace*{1cm}
-
-%\begin{minipage}[!h]{0.4\textwidth}
-%  asd
-%\end{minipage}
-
-%\begin{minipage}[!h]{0.4\textwidth}
-% \begin{flushright}
-%    qqe
-%  \end{flushright}
-%\end{minipage}
-
-\date{\today}
 \end{center}
 
-\newpage
+\end{titlepage}
 }
+\makeatother
 
-
-\title{
-    Lokalizacja twarzy na obrazie za pomocą konwolucyjnych sieci neuronowych
-}
-\author{
-    Bartłomiej Bułat\\
+\title{Lokalizacja twarzy na obrazie za pomocą konwolucyjnych sieci neuronowych}
+\author{Bartłomiej Bułat\\
     Tomasz Czarnik\\
-    Krzysztof Śmiłek\\
-    Informatyka Stosowana\\
-    Wydział EAIiE}
-
+    Krzysztof Śmiłek\\\\}
+\date{\today}
 
 \makeindex
 
 \begin{document}
 
-\maketitlepage
-
+\maketitle
 \printindex
 
 
@@ -203,14 +199,55 @@ Sam proces trenowania przedstawia się natomiast w następujących krokach:
 \item Stworzenie zbioru 400 obrazów przedstawiających twarz i 400 nie zawierających jej.
 \item Ustawienie zmiennych: BootsIter = 0
 \item Wybranie spośród zbioru utworzonego w (1) twarzy po 300 obrazów z twarzą i 300 bez.
-\item Trenowanie sieci przez około 20 trenowalnych epok. W każdej epoce używana jest taka sama liczba pozytywnych
-i negatywnych przykładów.
+\item Trenowanie sieci przez około 10 trenowalnych epok. W każdej epoce używana jest taka sama liczba pozytywnych
+i negatywnych przykładów. Trenowanie odbywa się natomiast metodą wstecznej propagacji błędów ze współczynnikiem uczenia
+(od 0.005)
 \item Inkrementacja zmiennej BootsIter = BootsIter+1;
 \item Jeśli BootsIter < 6 to idź do (3)
-\item Trenowanie sieci przez kolejne 20 epok, ale już dla całego zbioru obazów.
+\item Trenowanie sieci przez kolejne 10 epok, ale już dla całego zbioru obazów.
  \end{enumerate}
 
-Przedstawiony wyżej algorytm został zaczerpnięty z [1]. 
+Przedstawiony wyżej algorytm został dokladniej opisany w artykule [1]. 
+Do końca nie udało nam się go w pelni zrozumieć (dlaczego akurat taka a nie inna liczba iteracji itd), 
+jednakże ufamy w pełni jego twórcom.
+
+\subsection{Testowanie}
+Proces testowania rozpoczęliśmy wykonując wcześniej wspomniany algorytm krok po kroku. Jednakże podczas nauki 
+za pomocą metody wstecznej propagacji błędów zauważyliśmy, że nauka ta nie przynosi żadnych rezultatów.\\
+\indent
+Po konsultacji z prowadzacym doszliśmy wszyscy do wniosku, że wina najprawdopobobniej leży w tym, 
+że twarz jest sama w sobie jest dosyć skomplikowanym obiektem, o mnóstwie cech.
+Postanowiliśmy zatem, że zamiast wykrywać twarze będziemy wykrywać na obrazach cyfry, które są prostsze do opisania,
+ponieważ posiadają mniejszą liczbę własności.
+Ponownie zatem stworzyliśmy bazę obrazów z cyframi i wykonaliśmy wspomniany algorytm dla nowych danych.
+Jak sie okazało rezultaty były zaskakujące. Dla tej samej budowy sieci program zaczął rozróżniać cyfry.
+
+Wykres uczenia się systemu dla przeprowadonych testów prezentuje się następująco:
+
+\vspace*{0.5cm}
+\hspace*{3cm}
+\includegraphics[scale=0.6]{wykres}
+\hspace*{3cm}
+\vspace*{0.5cm}
+
+Jak możemy zauważyć, z każdą przeprowadzoną iteracją wartość błędu obliczeń się zmniejsza, 
+co symbolizuje że sieć uczy się prawidlowo.\\
+Tak wyuczoną siec można juz poddać głębszym testom. Postanowilismy tego dokonać tworząc obraz testowy:
+
+\hspace*{4cm}
+\includegraphics[scale=0.4]{test1}
+\hspace*{3cm}
+\vspace*{0.5cm}
+
+Po przeprowadzeniu testu otrzymaliśmy zadowalający obraz wynikowy, który potwierdza, że stworzona przez nas 
+sieć neuronowa dziala i nadaje sie do wykrywania prostych obiektów np liczb.
+Oto otrzymany obraz wynikowy:
+
+\vspace*{0.5cm}
+\hspace*{4cm}
+\includegraphics[scale=0.4]{wynik}
+\hspace*{3cm}
+\vspace*{0,5cm}
 
 %=================================================
 \section{Rezultaty i wnioski}

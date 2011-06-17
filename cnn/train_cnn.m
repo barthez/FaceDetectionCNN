@@ -1,4 +1,5 @@
 close all;
+clear all;
 clc;
 
 cnet = cnn(6, 10);
@@ -86,8 +87,8 @@ cnet = init(cnet);
 
 %imshow(out);
 
-IpG = loadImages('../faces/face_%04d.bmp', 59 ); %'../faces/face_%04d.bmp' %'../cyfry/%02d.bmp'
-IpB{1} = double(zeros(36,32));
+IpG = loadImages('../faces/face_%04d.bmp', 1104 );
+IpB = loadImages('../non_faces/img_%04d.bmp', 1542 );
 
 [error,cnet] = train(cnet, IpG, IpB);
 

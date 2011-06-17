@@ -14,6 +14,7 @@ for it = n:-1:1
         cnet.Layer{it}.dEdX{f} = 0.0;
         if n == it
             cnet.Layer{it}.dEdX{f} = mse('dy' , d, cnet.Layer{it}.Y{f}, cnet.Layer{it}.X{f}, 'mse');
+            %cnet.Layer{it}.dEdX{f}
         else
             for c=find( cnet.Layer{it+1}.ConMap(:,f) )'
                 if cnet.Layer{it+1}.type == 'n'
@@ -39,14 +40,24 @@ for it = n:-1:1
         cnet.Layer{it}.dXdY{f} = feval(cnet.Layer{it}.TransferFunction,'dn',cnet.Layer{it}.Y{f},cnet.Layer{it}.X{f});
             
         cnet.Layer{it}.dEdY{f} = cnet.Layer{it}.dXdY{f}.*cnet.Layer{it}.dEdX{f};
-            
+        
+        if  size(cnet.Layer{it}.dEdY{f},1) == 0
+            fprintf('Cos sie dzieje\n');
+        end
         
         if cnet.Layer{it}.type == 'n' % Warstwa typu N
                      
             
             cnet.Layer{it}.dEdW{f} = zeros( size( cnet.Layer{it}.W{f} ) );
+            %fprintf('*** L: %d\n', it);
+            %size(cnet.Layer{it}.dEdW{f})
             for c=find( cnet.Layer{it}.ConMap(f,:) )
-                cnet.Layer{it}.dEdW{f}(:,:,c) = cnet.Layer{it}.dEdY{f} .* cnet.Layer{it -1}.X{c}; 
+                %fprintf('---\n');
+                %size(cnet.Layer{it}.dEdY{f})
+                %size(cnet.Layer{it -1}.X{c})
+                if size(cnet.Layer{it}.dEdY{f},1) > 0
+                    cnet.Layer{it}.dEdW{f}(:,:,c) = cnet.Layer{it}.dEdY{f} .* cnet.Layer{it -1}.X{c}; 
+                end
             end
             
             cnet.Layer{it}.dEdB{f} = cnet.Layer{it}.dEdY{f};
@@ -90,8 +101,8 @@ for it=1:n
         %fprintf(' - ADAPT: Layer %d, fMap %2d, Type %c #\n', it, f, cnet.Layer{it}.type );
        %fprintf('size X = (%d, %d)\n', size(cnet.Layer{it}.W{f} ) );
        %fprintf('size X = (%d, %d)\n', size(cnet.Layer{it}.dEdW{f} ) );
-       cnet.Layer{it}.W{f} = cnet.Layer{it}.W{f} - cnet.Layer{it}.teta .* cnet.Layer{it}.dEdW{f};
-       cnet.Layer{it}.B{f} = cnet.Layer{it}.B{f} - cnet.Layer{it}.teta .* cnet.Layer{it}.dEdB{f};
+       cnet.Layer{it}.W{f} = cnet.Layer{it}.W{f} - cnet.theta .* cnet.Layer{it}.dEdW{f};
+       cnet.Layer{it}.B{f} = cnet.Layer{it}.B{f} - cnet.theta .* cnet.Layer{it}.dEdB{f};
        
     end
 end
