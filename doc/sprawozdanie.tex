@@ -29,16 +29,23 @@
 \rule{\textwidth}{0.4mm}
 
 \vspace*{5mm}
-\begin{flushright}
 
-    \begin{minipage}{5cm}
-
-    \textit{\small Autorzy:}\\
-    \normalsize \textsc{\@author} \par
-
-    \end{minipage}
-
+% Author and supervisor
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Autorzy:}\\
+Bartłomiej \textsc{Bułat}\\
+Tomasz \textsc{Czarnik}\\
+Krzysztof \textsc{Śmiłek}\\
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Opiekun projektu:} \\
+dr inż.~Mirosław \textsc{Jabłoński}
 \end{flushright}
+\end{minipage}
+\vfill
 \vspace*{\stretch{8}}
 \rule{\textwidth}{0.4mm}
 
@@ -55,9 +62,6 @@
 \makeatother
 
 \title{Lokalizacja twarzy na obrazie za pomocą konwolucyjnych sieci neuronowych}
-\author{Bartłomiej Bułat\\
-    Tomasz Czarnik\\
-    Krzysztof Śmiłek\\\\}
 \date{\today}
 
 \makeindex
@@ -264,21 +268,20 @@ Oto otrzymany obraz wynikowy:
 \item Sieci Neuronowe, Ryszard Tadeusiewicz
  \end{enumerate}
 %=================================================
+\newpage
 \section{Dodatek A: Opis narzędzi i metod postępowania}
 \subsection{Implementacja algorytmu}
-Działanie algorytmu wdrażaliśmy w środowisku MathWorks Matlab R2009b. Zdecydowaliśmy się na nie ze względu na mnogość łatwo dostępnych funkcji wspomagających obliczenia, szybkość implementacji oraz to iż w ciągu studiów nabyliśmy sporo doświadzenia przy pracy w nim, szczególnie przy obróbce grafiki.
+Działanie algorytmu wdrażaliśmy w środowisku MathWorks Matlab R2009b. Zdecydowaliśmy się na nie ze względu na mnogość łatwo dostępnych funkcji wspomagających obliczenia, szybkość implementacji oraz to iż w ciągu studiów nabyliśmy sporo doświadzenia przy pracy w nim, szczególnie przy obróbce grafiki.\\
 \indent
-Matlab posiada wbudowane toolkity wspomagające pracę nad sieciami neuronowymi, ale niestety nie ma wśród nich obsługi konwolucyjnych sieci nieuronowych. Dlatego też rozpoczęliśmy poszukiwania potrzebnych narzędzi w Internecie. Znaleźliśmy projekt Mikhail Sirotenko\footnote{ opis projektu oraz pliki dostępne pod adresem  https://sites.google.com/site/mihailsirotenko/projects/convolutional-neural-network-class [dostęp 10.06.2011]}  w którym wykorzystane zostały konwolucyjne sieci neuronowe do rozpoznawania odręcznie napisanych cyfr. Klasa odpowiedzialna za sieci neuronowe została napisana przez Yann LeCun'a. Początkowo modyfikowaliśmy skrypt dla naszych potrzeb, jednak po jakimś czasie uznaliśmy, że lepiej będzie go przepisać na nowo opierając się na pierwotnym z zachowaniem struktury klasy. Podstawowymi zadaniami jakie wykonaliśmy było wprowadzenie odpowiednich parametrów konwolucyjnych sieci neuronowych, przeprowadzenie treningu dla wybranych obrazów treningowych oraz analiza wyników działania sieci dla obrazów testowych po czym ponowna konfiguracja parametrów.
-\indent
-
-Zrzut ekranu okna programu Matlab:
-
+Matlab posiada wbudowane toolkity wspomagające pracę nad sieciami neuronowymi, ale niestety nie ma wśród nich obsługi konwolucyjnych sieci nieuronowych. Dlatego też rozpoczęliśmy poszukiwania potrzebnych narzędzi w Internecie. Znaleźliśmy projekt Mikhail Sirotenki\footnote{ projekt dostępny pod adresem  https://sites.google.com/site/mihailsirotenko/projects/convolutional-neural-network-class [dostęp 10.06.2011]}  w którym wykorzystane zostały konwolucyjne sieci neuronowe do rozpoznawania odręcznie napisanych cyfr. Klasa odpowiedzialna za sieci neuronowe została napisana przez Yann LeCun'a. Początkowo modyfikowaliśmy skrypt dla naszych potrzeb, jednak po jakimś czasie uznaliśmy, że lepiej będzie go przepisać na nowo opierając się na pierwotnym z zachowaniem struktury klasy. Zrzut ekranu okna programu Matlab:\\
+\\
 \vspace*{0.5cm}
 \includegraphics[scale=0.5]{matlab}
 \vspace*{0.5cm}
 
 Z prawej strony widać strukturę plików projektu. Folder @cnn zawiera pliki klasy cnn, zawierają między innymi konstruktor, funkcję treningową (train.m), funkcję adaptacyjną (adapt.m) oraz skrypt sprawdzający działania sieci neuronowej na podanym obiekcie (sim.m).\\
 \indent
+ Podstawowymi zadaniami jakie wykonaliśmy było wprowadzenie odpowiednich parametrów konwolucyjnych sieci neuronowych, przeprowadzenie treningu dla wybranych obrazów treningowych oraz analiza wyników działania sieci dla obrazów testowych po czym ponowna konfiguracja parametrów.
 Aby rozpocząć naukę nowych sieci neuronowych należy uruchomić plik train\_cnn.m i poczekać na zakończenie treningu (wyświetli się wtedy wykres błędów). Aby przeprowadzić symulację wykorzystujemy skrypt sim\_file.m .
 
 Podjęliśmy próbę użycia opracowanej przez firmę Nvidia architektury CUDA służącej do wspomagania obliczeń przy wykorzystaniu wydajnych układów graficznych. Niestety po zainstalowaniu pakietu deweloperskiego i wgraniu potrzebnych bibliotek otrzymaliśmy błędy przy wywołaniu funkcji, których z braku wiedzy o architekturze oraz dostępu do źródeł kodu nie udało nam się naprawić.
@@ -289,9 +292,18 @@ Zdjęcia treningowe pochodzą z bezpłatnych baz zdjęć twarzy znalezionych w I
 \indent
 Obrazy nie przedstawiające twarzy (potrzebne w procesie nauki jako antywzorce) uzyskaliśmy poprzez pokrojenie obrazów krajobrazów oraz fragmentów zdjęć niezawierających twarzy. W tym celu napisaliśmy w Matlabie skrypt slice.m, którego zadaniem jest utworzenie wielu plików małych obrazków o zadanym rozmiarze z jednego dużego.
 \subsection{Organizacja pracy grupowej}
-W celu realizacji projektu wielokrotnie spotykaliśmy się by wspólnie pracować. Po wyznaczeniu zakresu prac zaistniała potrzeba aby każdy z nas mógł pracować indywidualnie nad swoją częścią. Aby umożliwić równoczesną pracę zdalną skorzystaliśmy z rozproszonego systemu kontroli wersji GIT. Założył konto w ogólnodostępnym, w dużej części bezpłatnym serwisie github ( https://github.com/) oraz zainstalowaliśmy potrzebne oprogramowanie. Po utworzeniu repozytorium i przypisaniu członków można było bardzo szybko i łatwo nanosić swoje poprawki do projektu czy wysyłać pliki. W razie wystąpienia problemu można było bez większego zachodu przywrócić poprzednią, działającą wersję. Każdą, nawet drobną zmianę (tzw. commit) dało się opisać komentarzem, co pozwalało reszcie zorientować się co się zmieniło.
-\includegraphics[scale=0.5]{gitconsole}
+W celu realizacji projektu wielokrotnie spotykaliśmy się by wspólnie pracować. Po wyznaczeniu zakresu prac zaistniała potrzeba aby każdy z nas mógł pracować indywidualnie nad swoją częścią. Aby umożliwić równoczesną pracę zdalną skorzystaliśmy z rozproszonego systemu kontroli wersji GIT. Założył konto w ogólnodostępnym, w dużej części bezpłatnym serwisie github ( https://github.com/) oraz zainstalowaliśmy potrzebne oprogramowanie. Po utworzeniu repozytorium i przypisaniu członków można było bardzo szybko i łatwo nanosić swoje poprawki do projektu czy wysyłać pliki.\\
+\vspace*{0.5cm}
+\includegraphics[scale=0.6]{gitconsole}
+\vspace*{0.5cm}\\
+W razie wystąpienia problemu można było bez większego zachodu przywrócić poprzednią, działającą wersję. Każdą, nawet drobną zmianę (tzw. commit) dało się opisać komentarzem, co pozwalało reszcie zorientować się co się zmieniło.\\
+\vspace*{0.5cm}\\
+\includegraphics[scale=0.6]{commits}
+\vspace*{0.5cm}\\
 
+\subsection{Dokumentacja}
+Niniejszą dokumentację stworzyliśmy w TeXie przy użyciu programu MikTeX 2.9. Zdecydowaliśmy się na to, ponieważ TeX umożliwia wstawianie nawet dosyć skomplikowanych wzorów matematycznych, pozwala łatwo i szybko formatować tekst oraz wspomaga automatyczną indeksację treści i eksport do PDF.  \\
+\indent
 
 %=================================================
 \section{Dodatek A: Opis realizacji rozwiązania}

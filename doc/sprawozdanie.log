@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2011.6.17)  17 JUN 2011 23:21
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2011.6.17)  18 JUN 2011 00:33
 entering extended mode
 **D:/FaceDetectionCNN/doc/sprawozdanie.tex
 (D:/FaceDetectionCNN/doc/sprawozdanie.tex
@@ -397,19 +397,19 @@ Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
 
 Writing index file sprawozdanie.idx
 (D:\FaceDetectionCNN\doc\sprawozdanie.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 65.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 69.
 
 ("D:\Program Files\MikTex2_9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -435,48 +435,40 @@ Package epstopdf Info: Source file: <agh.eps>
 (epstopdf)                    size: 3601 bytes
 (epstopdf)             Command: <epstopdf --outfile=agh-eps-converted-to.pdf ag
 h.eps>
-(epstopdf)             \includegraphics on input line 67.
+(epstopdf)             \includegraphics on input line 71.
 Package epstopdf Info: Output file is already uptodate.
  <agh-eps-converted-to.pdf, id=1, 64.24pt x 124.465pt>
 File: agh-eps-converted-to.pdf Graphic file (type pdf)
 
 <use agh-eps-converted-to.pdf>
-Underfull \hbox (badness 10000) in paragraph at lines 67--67
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 71.
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 67--67
-
- []
-
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 67.
 ("D:\Program Files\MikTex2_9\tex\latex\lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 67.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 71.
 
 ("D:\Program Files\MikTex2_9\tex\latex\lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 67.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 71.
 
 
 ("D:\Program Files\MikTex2_9\tex\latex\lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 67.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 71.
 
 
 ("D:\Program Files\MikTex2_9\tex\latex\lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <17.28> on input line 67.
+(Font)              <17.28> on input line 71.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 67.
+(Font)              <12> on input line 71.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 67.
+(Font)              <10> on input line 71.
  [1
 
 {C:/Users/Tsm/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <D:/FaceDetect
@@ -489,40 +481,40 @@ File: neuron.png Graphic file (type png)
 File: neuron2.png Graphic file (type png)
  <use neuron2.png>
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 98.
+(Font)              <10.95> on input line 102.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 98.
+(Font)              <8> on input line 102.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 98.
+(Font)              <6> on input line 102.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 101.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 105.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 103--114
+Underfull \hbox (badness 10000) in paragraph at lines 107--118
 
  []
 
 <schemat.png, id=14, 673.76718pt x 396.7322pt>
 File: schemat.png Graphic file (type png)
  <use schemat.png>
-Overfull \hbox (16.3897pt too wide) in paragraph at lines 117--119
+Overfull \hbox (16.3897pt too wide) in paragraph at lines 121--123
 []
  []
 
 [1 <D:/FaceDetectionCNN/doc/neuron.png (PNG copy)> <D:/FaceDetectionCNN/doc/neu
 ron2.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 120--155
+Underfull \hbox (badness 10000) in paragraph at lines 124--159
 
  []
 
 [2 <D:/FaceDetectionCNN/doc/schemat.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 158--176
+Underfull \hbox (badness 10000) in paragraph at lines 162--180
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 178--198
+Underfull \hbox (badness 10000) in paragraph at lines 182--202
 
  []
 
@@ -535,48 +527,59 @@ File: test1.png Graphic file (type png)
 <wynik.png, id=39, 482.55281pt x 359.84438pt>
 File: wynik.png Graphic file (type png)
  <use wynik.png> [5 <D:/FaceDetectionCNN/doc/wykres.png (PNG copy)> <D:/FaceDet
-ectionCNN/doc/test1.png> <D:/FaceDetectionCNN/doc/wynik.png (PNG copy)>]
+ectionCNN/doc/test1.png> <D:/FaceDetectionCNN/doc/wynik.png (PNG copy)>] [6]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 271.
+(Font)              <9> on input line 276.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 271.
+(Font)              <5> on input line 276.
 
-Overfull \hbox (24.76265pt too wide) in paragraph at lines 271--271
-[][]\T1/lmr/m/n/9 opis pro-jektu oraz pliki do-st¦pne pod ad-re-sem https://sit
-es.google.com/site/mihailsirotenko/projects/convolutional-
+<matlab.png, id=48, 811.03pt x 688.5725pt>
+File: matlab.png Graphic file (type png)
+ <use matlab.png>
+Underfull \hbox (badness 10000) in paragraph at lines 274--281
+
  []
 
-<matlab.png, id=44, 811.03pt x 688.5725pt>
-File: matlab.png Graphic file (type png)
- <use matlab.png> [6] [7 <D:/FaceDetectionCNN/doc/matlab.png (PNG copy)>] [8]
-(D:\FaceDetectionCNN\doc\sprawozdanie.aux) ) 
+[7 <D:/FaceDetectionCNN/doc/matlab.png (PNG copy)>]
+<gitconsole.png, id=55, 679.53876pt x 281.05pt>
+File: gitconsole.png Graphic file (type png)
+ <use gitconsole.png>
+<commits.png, id=56, 701.62125pt x 559.08875pt>
+File: commits.png Graphic file (type png)
+ <use commits.png>
+Underfull \hbox (badness 10000) in paragraph at lines 295--303
+
+ []
+
+[8] [9 <D:/FaceDetectionCNN/doc/gitconsole.png (PNG copy)> <D:/FaceDetectionCNN
+/doc/commits.png (PNG copy)>] [10] (D:\FaceDetectionCNN\doc\sprawozdanie.aux) )
+ 
 Here is how much of TeX's memory you used:
- 2388 strings out of 494053
- 31215 string characters out of 3149012
- 89143 words of memory out of 3000000
- 5603 multiletter control sequences out of 15000+200000
- 77841 words of font info for 55 fonts, out of 3000000 for 9000
+ 2396 strings out of 494053
+ 31349 string characters out of 3149012
+ 89271 words of memory out of 3000000
+ 5610 multiletter control sequences out of 15000+200000
+ 73578 words of font info for 54 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 41i,8n,24p,1171b,327s stack positions out of 5000i,500n,10000p,200000b,50000s
-{D:/Program Files/MikTex2_9/fonts/e
-nc/dvips/lm/lm-ec.enc}{D:/Program Files/MikTex2_9/fonts/enc/dvips/lm/lm-mathsy.
-enc}{D:/Program Files/MikTex2_9/fonts/enc/dvips/lm/lm-mathex.enc}{D:/Program Fi
-les/MikTex2_9/fonts/enc/dvips/lm/lm-rm.enc}{D:/Program Files/MikTex2_9/fonts/en
-c/dvips/lm/lm-mathit.enc}<D:/Program Files/MikTex2_9/fonts/type1/public/lm/lmbx
-10.pfb><D:/Program Files/MikTex2_9/fonts/type1/public/lm/lmbx12.pfb><D:/Program
- Files/MikTex2_9/fonts/type1/public/lm/lmcsc10.pfb><D:/Program Files/MikTex2_9/
-fonts/type1/public/lm/lmex10.pfb><D:/Program Files/MikTex2_9/fonts/type1/public
-/lm/lmmi10.pfb><D:/Program Files/MikTex2_9/fonts/type1/public/lm/lmmi8.pfb><D:/
-Program Files/MikTex2_9/fonts/type1/public/lm/lmr10.pfb><D:/Program Files/MikTe
-x2_9/fonts/type1/public/lm/lmr12.pfb><D:/Program Files/MikTex2_9/fonts/type1/pu
-blic/lm/lmr17.pfb><D:/Program Files/MikTex2_9/fonts/type1/public/lm/lmr6.pfb><D
-:/Program Files/MikTex2_9/fonts/type1/public/lm/lmr8.pfb><D:/Program Files/MikT
-ex2_9/fonts/type1/public/lm/lmr9.pfb><D:/Program Files/MikTex2_9/fonts/type1/pu
-blic/lm/lmri10.pfb><D:/Program Files/MikTex2_9/fonts/type1/public/lm/lmsy10.pfb
->
-Output written on sprawozdanie.pdf (9 pages, 573821 bytes).
+ 41i,8n,24p,906b,315s stack positions out of 5000i,500n,10000p,200000b,50000s
+{D:/Program Files/MikTex2_9/fonts/enc/dvips/lm/lm-ec.enc}{D:/Program Files/MikT
+ex2_9/fonts/enc/dvips/lm/lm-mathsy.enc}{D:/Program Files/MikTex2_9/fonts/enc/dv
+ips/lm/lm-mathex.enc}{D:/Program Files/MikTex2_9/fonts/enc/dvips/lm/lm-rm.enc}{
+D:/Program Files/MikTex2_9/fonts/enc/dvips/lm/lm-mathit.enc}<D:/Program Files/M
+ikTex2_9/fonts/type1/public/lm/lmbx10.pfb><D:/Program Files/MikTex2_9/fonts/typ
+e1/public/lm/lmbx12.pfb><D:/Program Files/MikTex2_9/fonts/type1/public/lm/lmcsc
+10.pfb><D:/Program Files/MikTex2_9/fonts/type1/public/lm/lmex10.pfb><D:/Program
+ Files/MikTex2_9/fonts/type1/public/lm/lmmi10.pfb><D:/Program Files/MikTex2_9/f
+onts/type1/public/lm/lmmi8.pfb><D:/Program Files/MikTex2_9/fonts/type1/public/l
+m/lmr10.pfb><D:/Program Files/MikTex2_9/fonts/type1/public/lm/lmr12.pfb><D:/Pro
+gram Files/MikTex2_9/fonts/type1/public/lm/lmr17.pfb><D:/Program Files/MikTex2_
+9/fonts/type1/public/lm/lmr6.pfb><D:/Program Files/MikTex2_9/fonts/type1/public
+/lm/lmr8.pfb><D:/Program Files/MikTex2_9/fonts/type1/public/lm/lmr9.pfb><D:/Pro
+gram Files/MikTex2_9/fonts/type1/public/lm/lmri12.pfb><D:/Program Files/MikTex2
+_9/fonts/type1/public/lm/lmsy10.pfb>
+Output written on sprawozdanie.pdf (11 pages, 670388 bytes).
 PDF statistics:
- 109 PDF objects out of 1000 (max. 8388607)
+ 117 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
