@@ -60,7 +60,7 @@ for it = n:-1:1
                 end
             end
             
-            cnet.Layer{it}.dEdB{f} = cnet.Layer{it}.dEdY{f};
+            cnet.Layer{it}.dEdB{f} = mean(mean(cnet.Layer{it}.dEdY{f}));
             
         elseif cnet.Layer{it}.type == 's'  % Warstwa subsamplingu
 
@@ -71,6 +71,7 @@ for it = n:-1:1
             for c=find( cnet.Layer{it}.ConMap(f,:) )
                 cnet.Layer{it}.dEdW{f} = cnet.Layer{it}.dEdY{f} .* subsample(cnet.Layer{it -1}.X{c}, cnet.Layer{it}.InputHeight, cnet.Layer{it}.InputWidth); 
             end
+            
             cnet.Layer{it}.dEdW{f} = mean(mean(cnet.Layer{it}.dEdW{f}));
             cnet.Layer{it}.dEdB{f} = mean(mean(cnet.Layer{it}.dEdY{f}));
         elseif cnet.Layer{it}.type == 'c'% Warstwa typu konwolucyjnego

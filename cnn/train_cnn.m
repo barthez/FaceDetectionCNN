@@ -88,7 +88,7 @@ cnet = init(cnet);
 %imshow(out);
 
 IpG = loadImages('../faces/face_%04d.bmp', 1104 );
-IpB = loadImages('../non_faces_gory/img_%04d.bmp', 1542 );
+IpB = loadImages('../non_faces/img_%04d.bmp', 1542 );
 
 [error,cnet] = train(cnet, IpG, IpB);
 

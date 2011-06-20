@@ -20,13 +20,14 @@ VBit = 1;
 
 error = zeros(cnet.epochs*6, 1);
 
-while BoostIter < 6
+while BoostIter < 1%6
+    PatNum = 100;
+        
+    GoodSet = getRandSet(IpG, PatNum);
+    BadSet  = getRandSet(IpB, PatNum);
     for ep =1:cnet.epochs
         fprintf('BoostIter = %d, Epoka = %d\n', BoostIter, ep);
-        PatNum = 60;
         
-        GoodSet = getRandSet(IpG, PatNum);
-        BadSet  = getRandSet(IpB, PatNum);
         
             
         for p = 1:PatNum

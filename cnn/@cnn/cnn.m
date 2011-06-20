@@ -12,8 +12,8 @@ cnet.epochs = Epochs;
 cnet.LayersNum = Layers;
 cnet.Ip{1} = 1;
 
-cnet.theta = 0.05;
-cnet.theta_dec = 0.5;
+cnet.theta = 0.5;
+cnet.theta_dec = 0.8;
 
 for it = 1:cnet.LayersNum
     cnet.Layer{it}.type = 's';
