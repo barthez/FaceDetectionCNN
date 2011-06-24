@@ -3,8 +3,11 @@ function cnet = cnn( Layers, Epochs )
 %   Detailed explanation goes here
 
 if ( nargin == 1 &&  isstruct(Layers) )
-    cnet = cless(Layers, 'cnn');
+    cnet = class(Layers, 'cnn');
     return
+elseif nargin == 0
+    Epochs = 10;
+    Layers = 1;
 end
 
 
