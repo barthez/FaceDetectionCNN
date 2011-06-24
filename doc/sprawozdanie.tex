@@ -10,7 +10,6 @@
 
 
 
-%\def\projectsymbol
 \makeatletter
 \renewcommand{\maketitle}{
 \begin{titlepage}
@@ -85,166 +84,194 @@ Siec neuronowa jest modelem matematycznym składającym się z sieci węzłów o
  i ich połączeń. Jest to pewna technika obliczeniowo-statystyczna, należąca do dziedziny sztucznej inteligencji. 
 Jej zadaniem jest symulacja działania ludzkiego mózgu. 
 
-\subsection{Budowa sieci neuronowej }
+\subsection{Budowa sieci neuronowej}
 Nasz mózg jest zbudowany z ogromnej ilości neuronów które komunikują się ze sobą za pomocą impulsów elektrycznych.
  Z informatycznego punktu widzenia neuron stanowi układ przetwarzający pewne dane, posiadający wiele wejść
  oraz jedno wyjście. Oto porównanie neuronu naturalnego ze sztucznym:
 
 \vspace*{1cm}
-\hspace*{1cm}
+\begin{center}
 \includegraphics[scale=0.7]{neuron}
 \hspace*{1cm}
 \includegraphics[scale=0.7]{neuron2}
-\hspace*{1cm}
+\end{center}
 \vspace*{1cm}
 
 Działanie sztucznego neuronu można opisać w przybliżeniu następująco:\\
-Sygnały $x_{i}$ podane na wejścia są mnożone prze odpowiednie wagi $w_{i}$ oraz sumowane.
- Wagi mogą przyjmować dowolne wartości rzeczywiste. Równanie neuronu wygląda zatem następująco:
+Sygnały $x_{i}$ podane na wejścia są mnożone prze odpowiednie wagi $w_{i}$ oraz sumowane. Wagi mogą 
+przyjmować dowolne wartości rzeczywiste. Zakłada się, że $x_0 = 1$, więc $w_0$ jest stałym
+pobudzeniem neuronu. Równanie neuronu wygląda zatem następująco:
+
 \begin{center}
-$Y = x_{1}w_{1} + x_{2}w_{2} + x_{3}w_{3} + … + x_{n}w_{n} + b$\\
+$Y = x_0w_0 + x_{1}w_{1} + x_{2}w_{2} + x_{3}w_{3} + … + x_{n}w_{n} + b$\\
 \end{center}
-Suma ta staje się następnie argumentem funkcji aktywacji, która zwraca wartości z zakresu 
-(-1,1). Wynik tej funkcji pojawia się zarazem na wyjściu z neuronu.\\
+
+Suma ta staje się następnie argumentem funkcji aktywacji, która zwykle zwraca wartości z zakresu 
+$(-1,1)$. Wynik tej funkcji pojawia się zarazem na wyjściu z neuronu.\\
 \\
-Jak zapewne możemy zauważyć pojemność pojedynczego neuronu nie jest duza, a więc nie może on zapamiętać 
+Jak możemy zauważyć pojemność pojedynczego neuronu nie jest duża, a więc nie może on zapamiętać 
 zbyt dużej ilości wzorców. Aby tego dokonać należy połączyć wiele pojedynczych neuronów w sieć. 
-Dokonuje się tego tworząc kolejne warstwy. Czym więcej warstw tym sieć bardziej złożona.
- Ilość neuronów w poszczególnych warstwach może się różnić i zależy od konkretnego zastosowania sieci.
- Należy do tego dodać, że neurony w jednej warstwie nie są połączone ze sobą, natomiast neurony z dwóch
- sąsiednich warstw są połączone "każdy z każdym". Sygnał przechodzi do warstwy wejściowej poprzez ukrytą 
-aż do wyjściowej, skąd jest odbierany i interpretowany.
+Dokonuje się tego tworząc kolejne warstwy. Czym więcej warstw tym sieć bardziej złożona. Ilość 
+neuronów w poszczególnych warstwach może się różnić i zależy od konkretnego zastosowania sieci. 
+Należy do tego dodać, że neurony w jednej warstwie nie są połączone ze sobą, natomiast neurony z
+dwóch sąsiednich warstw są połączone "każdy z każdym". Sygnał przechodzi do warstwy wejściowej 
+poprzez ukrytą aż do wyjściowej, skąd jest odbierany i interpretowany.
+
 %=================================================
 \section{Proponowane rozwiązanie}
-\subsection{Konwolucyjne znajdowanie twarzy}
+\subsection{Lokalizacja twarzy za pomocą CNN}
+
 \vspace*{1cm}
+\begin{center}
 \includegraphics[scale=0.7]{schemat}
+\end{center}
 \vspace*{1cm}
 
-Sieć ta składa się z sześciu warstw. Do warstw nie wlicza się obraz wejściowy o rozmiarach 32x36,
-który będzie klasyfikowany jako „twarz” lub „nie-twarz”. \\
-\indent 
-Warstwy od \textbf {C1} do \textbf{S2} składają się z serii obrazów na których są przeprowadzane operacje konwolucji lub subsamplingu.
- Obrazy te są nazywane inaczej mapami cech, ponieważ każdy z nich wydobywa z obrazu wejściowego inną cechę. 
-Warstwa  \textbf{N1} zawiera szereg niezależnych od siebie neuronów podłączonych wyjściami do  \textbf{N2}, 
-która jest zarazem zakończeniem całej sieci neuronowej. Każdy element w danej warstwie otrzymuje 
-na wejście informacje od małego zbioru elementów z warstwy poprzedniej. Koncepcję te pokazano na rysunku  \textbf{(b)}.\\
-\indent 
-Postaramy się teraz opisać dokładniej poszczególne elementy tworzące  przedstawioną powyżej architekturę 
-sieci neuronowej. Różne parametry opisujące całą sieć tj. ilość warstw, ilość elementów w warstwie,
- rodzaj połączeń między nimi a także wielkość poszczególnych elementów została wybrana doświadczalnie przez C. 
-Garcia i  M. Delakis. Przetestowali oni szeroki zakres wielu architektur sieci i przedstawiona powyżej okazała się
- najbardziej skuteczna zarówno pod względem wykrywalności twarzy jak i odporności na zakłócenia obrazu.\\
-\indent 
-Warstwa  \textbf {C1} jest złożona z czterech map cech. Rozmiar każdej z nich to 28x32 pikseli. 
-Każdy piksel w każdej mapie jest połączony z 5x5 sąsiedztwem z obrazu wejściowego i jego wartość odpowiada
- sumie ważonej tego sąsiedztwa (5x5). Dodatkowo do sumy tej jest dodawana dodatkowa zmienna trenowana
- zwana biasem. Podsumowując, w warstwie tej znajduje się 106(4x26) trenowanych zmiennych.\\
-\indent 
-Warstwa  \textbf{S1} złożona jest z czterech map cech. Każda z map powstała poprzez subsampling mapy 
-z poprzedniej warstwy z maska 2x2, przez co jej rozmiar to połowa rozmiatu poprzedniego. Z każdych 
-4 sąsiednich pikseli maski \textbf{C1} jest brana średnia, która jest nastepnie mnożona przez trenowalna zmienną.
-Do otrzymanej wartości dodawany jest bias, po czym wynik staje się argumentem do funkcji aktywacji 
-(tangensa hiperbolicznego). Funkcja ta używana jest po to, by uniknąć wykroczenia poza zakres zmiennych.
-Podsumowując, warstwa  \textbf{S1} składa się z 4 map cech o rozmiarze 14x16 oraz 8(4x2) trenowalnych parametrów.\\
-\indent
-Jak mozna zauważyć na rysunku  \textbf{(a)}, kolejne warstwy składają się z coraz większej ilości map cech, ale za to
-ich rozdzielczość się zmniejsza. Taki rodzaj systemu sieci został zaproponowany przez Hubela i Weisela i dobrze 
-wyodrębnia on z obrazu cechy potrzebne do poźniejszego przetwarzania przez neurony.\\
-\indent
-Warstwa  \textbf{C2} to konwolucyjna warstwa z 14 mapami cech. Pierwsze 8 powstało w wyniku konwolucji 
-z maską 3x3 map z poprzedniej warstwy (każda mapa z  \textbf{S1} produkuje 2 wyjścia).
-Pozostałe 6 to złożenia dwóch z czterech map z  \textbf{S1} ($4\choose 2$ $=6$ kombinacji).\\
-Oto schemat przykladowego zlożenia map o numerach 1 i 4:\\
+Sieć ta składa się z sześciu warstw. Pierwsze 4 to naprzemian warstwy konwolucyjne (\textbf{C}) i 
+warstwy subsamplingu (\textbf{S}). Ostatnie dwie to warstwy zwykych neuronów (\textbf{N}). Sieć jest 
+zaprojektowana tak, żeby mogła przetwarzać obrazy większe niż 32x36 pikseli.
+
+Warstwy od \textbf {C1} do \textbf{S2} składają się z skupisk neuronów które przeprowadzają operacje
+konwolucji lub subsamplingu na wyjściach z wyższych warstw. Skupiska te są nazywane inaczej mapami
+cech, ponieważ każde z nich wydobywa z obrazu wejściowego inną cechę. Warstwa  \textbf{N1} zawiera 
+szereg niezależnych od siebie neuronów podłączonych wyjściami do \textbf{N2}, która jest zarazem
+zakończeniem całej sieci neuronowej. Każdy element w danej warstwie otrzymuje na wejście informacje 
+od małego zbioru elementów z warstwy poprzedniej. Koncepcję te pokazano na rysunku  \textbf{(b)}.
+
+Postaramy się teraz opisać dokładniej poszczególne elementy tworzące  przedstawioną powyżej
+architekturę sieci neuronowej. Różne parametry opisujące całą sieć tj. ilość warstw, ilość elementów
+w warstwie, rodzaj połączeń między nimi a także wielkość poszczególnych elementów została wybrana 
+doświadczalnie przez C. Garcia i  M. Delakis. Przetestowali oni szeroki zakres wielu architektur 
+sieci i przedstawiona powyżej okazała się najbardziej skuteczna zarówno pod względem wykrywalności 
+twarzy jak i odporności na zakłócenia obrazu.
+ 
+Warstwa  \textbf {C1} jest złożona z czterech map cech. Każda mapa jest wynikiem konwolucji obrazu 
+wejściowego z maską 5x5 powiększoną o stałe pobudzenie neuronu (bias), dlatego wyjściowy obraz jest 
+mniejszy od wejściowego o 4 piksele (piksele brzegowe są odrzucane). Wartości maski oraz stałe 
+pobudzenie mogą ulec zmianie w trakcie treningu. Podsumowując, w warstwie tej znajduje się 
+104~($4  \cdot 26$) trenowanych zmiennych.
+
+Warstwa  \textbf{S1} złożona jest z czterech map cech, każda połączona z jedną mapą cech warstwy 
+wyższej. Każda z map powstała poprzez przeskalowanie wejścia, zmniejszając je dwukrotnie (Jako 
+wartość nowego piksela przyjmowana jest średnia pikseli sąsiednich). Zmniejszony obraz jest mnożony 
+przez wagę i powiększany o bias. Obie zmienne mogą ulec zmiane podczas treningu. Wynikowy obraz jest
+argumentem do funkcji aktywacji (tangensa hiperbolicznego). Funkcja ta wprowadza nielinowość do 
+modelu sieci neuronowej. Podsumowując, w warstwie \textbf{S1} znajduje się 8~($4 \cdot 2$) 
+trenowalnych parametrów.
+
+Jak można zauważyć na rysunku  \textbf{(a)}, kolejne warstwy składają się z coraz większej ilości 
+map cech, ale za to ich rozdzielczość się zmniejsza. Taki rodzaj systemu sieci został zaproponowany 
+przez Hubela i Weisela i dobrze wyodrębnia on z obrazu cechy potrzebne do poźniejszego przetwarzania
+przez neurony.
+
+Warstwa  \textbf{C2} to konwolucyjna warstwa z 14 mapami cech. Pierwsze 8 powstało w wyniku
+konwolucji z maską 3x3 map z poprzedniej warstwy. Pozostałe 6 to złożenia dwóch z czterech map z 
+warstwy \textbf{S1} (co wynika z wzoru na ilość kombinacji: $4 \choose 2$ $ = 6$).\\
+Oto schemat przykładowego złożenia map o numerach 1 i 4:
+
 \begin{center}
-$Y = maska1_{3x3}*mapa_{1}+maska2_{3x3}*mapa_{2}+bias$
+$Y = maska^{(1)}_{3x3}*mapa_{1}+maska^{(2)}_{3x3}*mapa_{2}+bias$
 \end{center}
-Podsumowując, warstwa ta sklada się z 14 map cech o rozmiarze 12x14 pikseli każda oraz z 196(8x(3x3+1)
-+ 6x(2x3x3+1)) trenowalnych zmiennych.\\
-\indent
-Warstwa  \textbf{S2} to warstwa subsamplingu analogiczna do warstwy  \textbf{S1}. 
-Zmienia sie tylko ilośc i rozmiar map cech. 
-Dostajemy zatem: 14 map o rozmiarach 6x7 oraz 28(14x2) trenowalnych zmiennych.\\
-\indent
-Ostatnie 2 warstwy składaja sie juz z neuronów. Ich zadaniem nie jest ekstrakcja cech jak miało to miejsce 
-w poprzednich warstwach, ale ich klasyfikacja. W  \textbf{N1} każdy z pojedynczych neuronów jest w pełni
-połączony z wszystkimi pikselami tylko jednej odpowiadającej mu mapy cech z  \textbf{S2}.
-Natomiast w warstwie  \textbf{N2} istnieje tylko jeden neuron, który łączy się z wyjściami ze wszystkich neuronów 
-z  \textbf{N1}. \\
-\indent
-Wszystkie neurony z warstw  \textbf{N1} i  \textbf{N2} wykonują klasyczny iloczyn skalarny pomiedzy wektorem 
-wejściowym a wektorem wag, do czego później dodawany jest jeszcze bias. Powstała ważona suma jest nastepnie 
-przepuszczana przez funkcję tangensa hiperbolicznego, po to,by wyjście z neuronu stanowila liczba z zakresu $(-1,1).$\\
-Wyjście z ostatniej warstwy  \textbf{N2} jest używana do klasyfikacji obrazu jako twarz (result>0) lub nie-twarz (result<0).
-Warstwy  \textbf{N1} i  \textbf{N2} mają zatem odpowiednio 602(14x43) i 15 trenowalnych zmiennych.\\
+
+Podsumowując, warstwa ta składa się z 14 map cech oraz z 196~($8 \cdot (3 \cdot 3+1) + 6 \cdot (2 
+\cdot 3 \cdot 3 +1)$) trenowalnych zmiennych.
+
+Warstwa  \textbf{S2} to warstwa subsamplingu analogiczna do warstwy  \textbf{S1}. Składa się ona z
+14 map cech oraz 28 ($14 \cdot 2$) trenowalnych zmiennych.
+
+Ostatnie 2 warstwy składają się juz ze zwykłych neuronów. Ich zadaniem nie jest ekstrakcja cech jak 
+miało to miejsce w poprzednich warstwach, ale ich klasyfikacja. W  \textbf{N1} każdy z pojedynczych 
+neuronów jest w pełni połączony z obszarem 6x7 pikseli (co w przypadku obrazów uczących pokrywa się 
+z wyjściem poprzedniej warstwy) tylko jednej odpowiadającej mu mapy cech z \textbf{S2}. Natomiast w 
+warstwie  \textbf{N2} istnieje tylko jeden neuron, który łączy się z wyjściami ze wszystkich 
+neuronów z \textbf{N1}. W przypadku gdy na wejście podany jest obraz jest większy od obrazu 
+uczącego, neurony przetwarzają każdy fragment osobno produkując na wyjściu macierz odpowiedzi.
+
+Wszystkie neurony z warstw  \textbf{N1} i  \textbf{N2} wykonują klasyczny iloczyn skalarny pomiędzy 
+wektorem wejściowym, a wektorem wag, do czego później dodawany jest bias. Wynik sumy jest argumentem
+funkcji aktywacji (tangensa hiperbolicznego), dlatego na wyjściu otrzymujemy liczbę z zakresu 
+$(-1,1)$. Wyjście z ostatniej warstwy  \textbf{N2} jest używana do klasyfikacji obrazu jako twarz 
+(wynik większy od zera) lub nie-twarz (w przeciwnym przypadku). Warstwy  \textbf{N1} i  \textbf{N2} 
+mają odpowiednio 602~($14 \cdot (4 \cdot 7 + 1)$) i 15 trenowalnych zmiennych.
 
 \subsection{Trenowanie sieci}
-\indent
-Stworzyliśmy zestaw szkoleniowy wybierając ponad 800 obrazków zawierających twarze i nie-twarze. 
-Zdjęcia pozyskaliśmy przeważnie z internetowych baz danych ktore udostepniały twarze w różnych perspektywach.
-Naszym zadaniem bylo ich wyselekcjonowanie i odpowiednie przycięcie, tak by do sieci neuronowej wprowadzić 
-jasno i czytelnie które zdjęcia powinien zakwalifikować jako twarz, a które nie. Zdjęcia staralismy sie takze dobierać w ten
-sposób aby skutycznie wyłapać różne cechy na obrazach, tak aby nasz system stał się jak najbardziej niezawodny i aby 
-wykrywał twarze z jak największą skutecznościa.\\
-\indent
-Sam proces przycinania obrazków polegał na tym, aby obrazek przeskalować, bądź przyciąc do wielkości 32x36px. Przy czym
-głownym celem było to, aby usta i oczy wybanych osób znajdowały sie na każdym obrazie mniej więcej w tym samym miejscu.
-Odległość pomiędzy ustami a oczami jest bowiem znacząca, ponieważ pozwala ona na zachowanie odpowiednich proporcji twarzy.
-Proporcje te to : odległość między oczami (około 16px), a między oczami i ustami (18px).\\
-\indent
-Zbieranie zbioru nie-twarzy okazało się o wiele trudniejsze niż sądziliśmy. Praktycznie każdy obraz nie zawierający twarzy
-mógłby posłużyc jako obraz testowy. Jednak w tym wypadku proces testowania jest mniej dokladny. Większą dokladnośc
-uzyskuje się podczas testowania obrazków które nie są twarzami, ale je znacząco przypominają. Jednak taki zbiór obrazów
-jest z oczywistych względów bardzo trudny do pozyskania, przez co posłużyliśmy sie do testów obrazami losowo wyciętymi
-z większych zdjęć przedstawiających krajobrazy. \\\\
-\indent
+
+Stworzyliśmy zestaw szkoleniowy wybierając ponad 2500 obrazków zawierających twarze i nie-twarze. 
+Zdjęcia pozyskaliśmy z internetowych baz danych które udostępniały twarze w różnych perspektywach. 
+Naszym zadaniem było ich wyselekcjonowanie i odpowiednie przycięcie, tak by do sieci neuronowej 
+wprowadzić jasno i czytelnie które zdjęcia powinien zakwalifikować jako twarz, a które nie. Zdjęcia 
+staraliśmy się także dobierać w ten sposób aby skutecznie wyłapać różne cechy na obrazach, tak aby 
+nasz system stał się jak najbardziej niezawodny i aby wykrywał twarze z jak największą 
+skutecznością.
+
+Sam proces przycinania obrazków polegał na tym, aby obrazek przeskalować, bądź przyciąć do wielkości
+32x36px. Przy czym głównym celem było to, aby usta i oczy wybranych osób znajdowały się na każdym 
+obrazie mniej więcej w tym samym miejscu. Odległość pomiędzy ustami, a oczami jest znacząca, 
+ponieważ pozwala ona na zachowanie odpowiednich proporcji twarzy. Proporcje te to: odległość między 
+oczami około 16px, a między oczami i ustami 18px.
+
+Zbieranie zbioru nie-twarzy okazało się o wiele trudniejsze niż sądziliśmy. Praktycznie każdy obraz 
+nie zawierający twarzy mógłby posłużyć jako obraz testowy. Jednak w tym wypadku proces testowania 
+jest mniej dokładny. Większą dokładność uzyskuje się podczas testowania obrazków które nie są 
+twarzami, ale je znacząco przypominają. Jednak taki zbiór obrazów jest z oczywistych względów bardzo
+trudny do pozyskania, przez co posłużyliśmy się do testów obrazami losowo wyciętymi z większych 
+zdjęć przedstawiających krajobrazy. 
+
+
 Sam proces trenowania przedstawia się natomiast w następujących krokach:
  \begin{enumerate}
 \item Stworzenie zbioru 400 obrazów przedstawiających twarz i 400 nie zawierających jej.
 \item Ustawienie zmiennych: BootsIter = 0
 \item Wybranie spośród zbioru utworzonego w (1) twarzy po 300 obrazów z twarzą i 300 bez.
-\item Trenowanie sieci przez około 10 trenowalnych epok. W każdej epoce używana jest taka sama liczba pozytywnych
-i negatywnych przykładów. Trenowanie odbywa się natomiast metodą wstecznej propagacji błędów ze współczynnikiem uczenia
-(od 0.005)
+\item Trenowanie sieci przez około 10 trenowalnych epok. W każdej epoce używana jest taka sama 
+liczba pozytywnych i negatywnych przykładów. Trenowanie odbywa się natomiast metodą wstecznej 
+propagacji błędów ze współczynnikiem uczenia (od 0.005)
 \item Inkrementacja zmiennej BootsIter = BootsIter+1;
 \item Jeśli BootsIter < 6 to idź do (3)
-\item Trenowanie sieci przez kolejne 10 epok, ale już dla całego zbioru obazów.
+\item Trenowanie sieci przez kolejne 10 epok, ale już dla całego zbioru obrazów.
  \end{enumerate}
 
-Przedstawiony wyżej algorytm został dokladniej opisany w artykule [1]. 
-Do końca nie udało nam się go w pelni zrozumieć (dlaczego akurat taka a nie inna liczba iteracji itd), 
-jednakże ufamy w pełni jego twórcom.
+Przedstawiony wyżej algorytm został dokładniej opisany w artykule [1]. 
+Oryginalnie algorytm zawierał również zmienną określającą wartość od której zbierane są tzw. 
+fałszywe alarmy (negatwyne przykłady, dla których dostaliśmy pozytywną odpowiedź). Sposób zbierania 
+tych przykładów i ich wykorzystania do nauki był dość zawiły, a także nie wpływał na jakość uczenia
+się sieci, dlatego opuściliśmy go w naszej implementacji.
 
 \subsection{Testowanie}
-Proces testowania rozpoczęliśmy wykonując wcześniej wspomniany algorytm krok po kroku. Jednakże podczas nauki 
-za pomocą metody wstecznej propagacji błędów zauważyliśmy, że nauka ta nie przynosi żadnych rezultatów.\\
-\indent
-Po konsultacji z prowadzacym doszliśmy wszyscy do wniosku, że wina najprawdopobobniej leży w tym, 
-że twarz jest sama w sobie jest dosyć skomplikowanym obiektem, o mnóstwie cech.
-Postanowiliśmy zatem, że zamiast wykrywać twarze będziemy wykrywać na obrazach cyfry, które są prostsze do opisania,
-ponieważ posiadają mniejszą liczbę własności.
-Ponownie zatem stworzyliśmy bazę obrazów z cyframi i wykonaliśmy wspomniany algorytm dla nowych danych.
-Jak sie okazało rezultaty były zaskakujące. Dla tej samej budowy sieci program zaczął rozróżniać cyfry.
 
-Wykres uczenia się systemu dla przeprowadonych testów prezentuje się następująco:
+Proces testowania rozpoczęliśmy wykonując wcześniej wspomniany algorytm krok po kroku. Jednakże 
+podczas nauki za pomocą metody wstecznej propagacji błędów zauważyliśmy, że nauka ta nie przynosi 
+żadnych rezultatów.
+
+Po konsultacji z prowadzącym doszliśmy do wniosku, że wina najprawdopobobniej leży w tym, że twarz 
+jest dosyć skomplikowanym obiektem, o mnóstwie cech. Postanowiliśmy zatem, że zamiast wykrywać 
+twarze będziemy wykrywać na obrazach cyfry, które są prostsze do opisania, ponieważ posiadają 
+mniejszą liczbę własności. Ponownie zatem stworzyliśmy bazę obrazów z cyframi i wykonaliśmy 
+wspomniany algorytm dla nowych danych. Dla tej samej budowy sieci program zaczął rozróżniać cyfry.
+
+Wykres uczenia się systemu dla przeprowadzonych testów prezentuje się następująco:
 
 \vspace*{0.5cm}
-\hspace*{3cm}
+\begin{center}
 \includegraphics[scale=0.6]{wykres}
-\hspace*{3cm}
+\end{center}
 \vspace*{0.5cm}
 
 Jak możemy zauważyć, z każdą przeprowadzoną iteracją wartość błędu obliczeń się zmniejsza, 
-co symbolizuje że sieć uczy się prawidlowo.\\
-Tak wyuczoną siec można juz poddać głębszym testom. Postanowilismy tego dokonać tworząc obraz testowy:
+co symbolizuje że sieć uczy się prawidłowo.
 
-\hspace*{4cm}
+Tak wyuczoną siec można juz poddać głębszym testom. Postanowiliśmy tego dokonać tworząc obraz 
+testowy:
+
+\vspace*{0.5cm}
+\begin{center}
 \includegraphics[scale=0.4]{test1}
-\hspace*{3cm}
+\end{center}
 \vspace*{0.5cm}
 
 Po przeprowadzeniu testu otrzymaliśmy zadowalający obraz wynikowy, który potwierdza, że stworzona przez nas 
-sieć neuronowa dziala i nadaje sie do wykrywania prostych obiektów np liczb.
+sieć neuronowa działa i nadaje się do wykrywania prostych obiektów np liczb.
+
 Oto otrzymany obraz wynikowy:
 
 \vspace*{0.5cm}
@@ -262,7 +289,8 @@ Oto otrzymany obraz wynikowy:
 %=================================================
 \section{Literatura}
  \begin{enumerate}
-\item Convolutional Face Finder: A Neural Architecture for Fast and Robust Face Detection, Christophe Garcia and Manolis Delakis
+\item Convolutional Face Finder: A Neural Architecture for Fast and Robust Face Detection, 
+Christophe Garcia and Manolis Delakis
 \item Convolutional neural networks for image processing, Matthw Browne, Saeed Shiry Ghidary
 \item An Embedded Robust Facial Feature Detector, Sebastien Roux, Christophe Garcia
 \item Sieci Neuronowe, Ryszard Tadeusiewicz
@@ -271,43 +299,94 @@ Oto otrzymany obraz wynikowy:
 \newpage
 \section{Dodatek A: Opis narzędzi i metod postępowania}
 \subsection{Implementacja algorytmu}
-Działanie algorytmu wdrażaliśmy w środowisku MathWorks Matlab R2009b. Zdecydowaliśmy się na nie ze względu na mnogość łatwo dostępnych funkcji wspomagających obliczenia, szybkość implementacji oraz to iż w ciągu studiów nabyliśmy sporo doświadzenia przy pracy w nim, szczególnie przy obróbce grafiki.\\
-\indent
-Matlab posiada wbudowane toolkity wspomagające pracę nad sieciami neuronowymi, ale niestety nie ma wśród nich obsługi konwolucyjnych sieci nieuronowych. Dlatego też rozpoczęliśmy poszukiwania potrzebnych narzędzi w Internecie. Znaleźliśmy projekt Mikhail Sirotenki\footnote{ projekt dostępny pod adresem  https://sites.google.com/site/mihailsirotenko/projects/convolutional-neural-network-class [dostęp 10.06.2011]}  w którym wykorzystane zostały konwolucyjne sieci neuronowe do rozpoznawania odręcznie napisanych cyfr. Klasa odpowiedzialna za sieci neuronowe została napisana przez Yann LeCun'a. Początkowo modyfikowaliśmy skrypt dla naszych potrzeb, jednak po jakimś czasie uznaliśmy, że lepiej będzie go przepisać na nowo opierając się na pierwotnym z zachowaniem struktury klasy. Zrzut ekranu okna programu Matlab:\\
-\\
+Działanie algorytmu wdrażaliśmy w środowisku MathWorks Matlab R2009b. Zdecydowaliśmy się na nie ze 
+względu na mnogość łatwo dostępnych funkcji wspomagających obliczenia, szybkość implementacji oraz 
+to iż w ciągu studiów nabyliśmy sporo doświadczenia przy pracy w nim, szczególnie przy obróbce 
+grafiki.
+
+Matlab posiada wbudowane narzędzia wspomagające pracę nad sieciami neuronowymi, ale niestety nie ma 
+wśród nich obsługi konwolucyjnych sieci neuronowych. Dlatego też rozpoczęliśmy poszukiwania 
+potrzebnych narzędzi w Internecie. Znaleźliśmy projekt Mikhail Sirotenki \footnote{ projekt dostępny
+pod adresem  https://sites.google.com/site/mihailsirotenko/projects/convolutional-neural-network-class
+[dostęp 10.06.2011]}  w którym wykorzystane zostały konwolucyjne sieci neuronowe do rozpoznawania 
+odręcznie napisanych cyfr. Klasa odpowiedzialna za sieci neuronowe została napisana przez 
+Yann LeCun'a. Początkowo modyfikowaliśmy skrypt dla naszych potrzeb, jednak po jakimś czasie 
+uznaliśmy, że lepiej będzie go przepisać na nowo opierając się na pierwotnym z zachowaniem struktury
+klasy. Zrzut ekranu okna programu Matlab:
+
 \vspace*{0.5cm}
+\begin{center}
 \includegraphics[scale=0.5]{matlab}
+\end{center}
 \vspace*{0.5cm}
 
-Z prawej strony widać strukturę plików projektu. Folder @cnn zawiera pliki klasy cnn, zawierają między innymi konstruktor, funkcję treningową (train.m), funkcję adaptacyjną (adapt.m) oraz skrypt sprawdzający działania sieci neuronowej na podanym obiekcie (sim.m).\\
-\indent
- Podstawowymi zadaniami jakie wykonaliśmy było wprowadzenie odpowiednich parametrów konwolucyjnych sieci neuronowych, przeprowadzenie treningu dla wybranych obrazów treningowych oraz analiza wyników działania sieci dla obrazów testowych po czym ponowna konfiguracja parametrów.
-Aby rozpocząć naukę nowych sieci neuronowych należy uruchomić plik train\_cnn.m i poczekać na zakończenie treningu (wyświetli się wtedy wykres błędów). Aby przeprowadzić symulację wykorzystujemy skrypt sim\_file.m .
+Z prawej strony widać strukturę plików projektu. Folder @cnn zawiera pliki klasy cnn, zawierają 
+między innymi konstruktor, funkcję treningową (\verb#train.m#), funkcję adaptacyjną 
+(\verb#adapt.m#) oraz skrypt sprawdzający działania sieci neuronowej na podanym obiekcie 
+(\verb#sim.m#).
 
-Podjęliśmy próbę użycia opracowanej przez firmę Nvidia architektury CUDA służącej do wspomagania obliczeń przy wykorzystaniu wydajnych układów graficznych. Niestety po zainstalowaniu pakietu deweloperskiego i wgraniu potrzebnych bibliotek otrzymaliśmy błędy przy wywołaniu funkcji, których z braku wiedzy o architekturze oraz dostępu do źródeł kodu nie udało nam się naprawić.
+Podstawowymi zadaniami jakie wykonaliśmy było wprowadzenie odpowiednich parametrów konwolucyjnych 
+sieci neuronowych, przeprowadzenie treningu dla wybranych obrazów treningowych oraz analiza wyników 
+działania sieci dla obrazów testowych po czym ponowna konfiguracja parametrów.
+
+Aby rozpocząć naukę nowych sieci neuronowych należy uruchomić plik train\_cnn.m i poczekać na 
+zakończenie treningu (wyświetli się wtedy wykres błędów). Aby przeprowadzić symulację 
+wykorzystujemy skrypt sim\_file.m .
+
+Podjęliśmy próbę użycia opracowanej przez firmę Nvidia architektury CUDA służącej do wspomagania 
+obliczeń przy wykorzystaniu wydajnych układów graficznych. Niestety po zainstalowaniu pakietu 
+deweloperskiego oraz potrzebnych bibliotek wciąz otrzymywaliśmy błędy o brakujących plikach, 
+których z braku wiedzy o architekturze oraz dostępu do źródeł kodu nie udało nam się naprawić.
   
 
 \subsection{Pozyskiwanie obrazów do treningu i testów}
-Zdjęcia treningowe pochodzą z bezpłatnych baz zdjęć twarzy znalezionych w Internecie. Zdobyte zdjęcia zostały poddane ręcznej obróbce w edytorach grafiki Gimp, FastStone Image Viewer 4.5, MS Paint. Twarz należało odpowiednio przeskalować oraz wykadrować tak, aby nos znalazł się na środku obrazka a cała twarz zmieściła się na obrazku o rozdzielczości 36x32.  Szczególnie przydatny był program IrfanView, którego użyliśmy do automatycznego, seryjnego przeskalowywania, zmiany nazw plików, konwersji do odcieni szarości i innych.\\
-\indent
-Obrazy nie przedstawiające twarzy (potrzebne w procesie nauki jako antywzorce) uzyskaliśmy poprzez pokrojenie obrazów krajobrazów oraz fragmentów zdjęć niezawierających twarzy. W tym celu napisaliśmy w Matlabie skrypt slice.m, którego zadaniem jest utworzenie wielu plików małych obrazków o zadanym rozmiarze z jednego dużego.
+Zdjęcia treningowe pochodzą z bezpłatnych baz zdjęć twarzy znalezionych w Internecie. Zdobyte 
+zdjęcia zostały poddane ręcznej obróbce w edytorach grafiki GIMP, FastStone Image Viewer 4.5, 
+MS Paint. Twarz należało odpowiednio przeskalować oraz wykadrować tak, aby nos znalazł się na środku
+obrazka a cała twarz zmieściła się na obrazku o rozdzielczości 36x32.  Szczególnie przydatny był 
+program IrfanView, którego użyliśmy do automatycznego, seryjnego przeskalowywania, zmiany nazw 
+plików, konwersji do odcieni szarości i innych.
+
+Obrazy nie przedstawiające twarzy (potrzebne w procesie nauki jako antywzorce) uzyskaliśmy poprzez 
+pokrojenie obrazów krajobrazów oraz fragmentów zdjęć niezawierających twarzy. W tym celu napisaliśmy
+w Matlabie skrypt slice.m, którego zadaniem jest utworzenie z jednego dużego wielu małych obrazków 
+o zadanym rozmiarze.
+
 \subsection{Organizacja pracy grupowej}
-W celu realizacji projektu wielokrotnie spotykaliśmy się by wspólnie pracować. Po wyznaczeniu zakresu prac zaistniała potrzeba aby każdy z nas mógł pracować indywidualnie nad swoją częścią. Aby umożliwić równoczesną pracę zdalną skorzystaliśmy z rozproszonego systemu kontroli wersji GIT. Założyliśmy konta w ogólnodostępnym, w dużej części bezpłatnym serwisie github ( https://github.com/) oraz zainstalowaliśmy potrzebne oprogramowanie. Po utworzeniu repozytorium i przypisaniu członków można było bardzo szybko i łatwo nanosić swoje poprawki do projektu czy wysyłać pliki.\\
+
+W celu realizacji projektu wielokrotnie spotykaliśmy się by wspólnie pracować. Po wyznaczeniu 
+zakresu prac zaistniała potrzeba aby każdy z nas mógł pracować indywidualnie nad swoją częścią. Aby 
+umożliwić równoczesną pracę zdalną skorzystaliśmy z rozproszonego systemu kontroli wersji GIT. 
+Założyliśmy konta w ogólnodostępnym, w dużej części bezpłatnym serwisie github (https://github.com/)
+oraz zainstalowaliśmy potrzebne oprogramowanie. Po utworzeniu repozytorium i przypisaniu członków 
+można było bardzo szybko i łatwo nanosić swoje poprawki do projektu czy wysyłać pliki.
+
 \vspace*{0.5cm}
+\begin{center}
 \includegraphics[scale=0.6]{gitconsole}
-\vspace*{0.5cm}\\
-W razie wystąpienia problemu można było bez większego zachodu przywrócić poprzednią, działającą wersję. Każdą, nawet drobną zmianę (tzw. commit) dało się opisać komentarzem, co pozwalało reszcie zorientować się co się zmieniło.\\
-\vspace*{0.5cm}\\
+\end{center}
+\vspace*{0.5cm}
+
+W razie wystąpienia problemu można było przywrócić poprzednią, działającą wersję. Każdą, nawet 
+drobną zmianę (tzw. commit) nalezało opisać komentarzem, co pozwalało wszystkich zorientować się 
+co zostało zmienione.
+
+\vspace*{0.5cm}
+\begin{center}
 \includegraphics[scale=0.6]{commits}
-\vspace*{0.5cm}\\
+\end{center}
+\vspace*{0.5cm}
 
 \subsection{Dokumentacja}
-Niniejszą dokumentację stworzyliśmy w TeXie przy użyciu programu MikTeX 2.9. Zdecydowaliśmy się na to, ponieważ TeX umożliwia wstawianie nawet dosyć skomplikowanych wzorów matematycznych, pozwala łatwo i szybko formatować tekst oraz wspomaga automatyczną indeksację treści i eksport do PDF.  \\
-\indent
+
+Niniejszą dokumentację stworzyliśmy w \LaTeX-ie przy użyciu programu MikTeX 2.9. Zdecydowaliśmy się na 
+to, ponieważ \LaTeX umożliwia wstawianie skomplikowanych wzorów matematycznych, pozwala łatwo i 
+szybko formatować tekst oraz wspomaga automatyczną indeksację treści i eksport do PDF. 
+
 
 %=================================================
-\section{Dodatek A: Opis realizacji rozwiązania}
-\section{Dodatek A: Opis informatycznych procedur}
-\section{Dodatek A: Spis zawartości dołączonych nośników}
+\section{Dodatek B: Opis realizacji rozwiązania}
+\section{Dodatek C: Opis informatycznych procedur}
+\section{Dodatek D: Spis zawartości dołączonych nośników}
 
 \end{document}
