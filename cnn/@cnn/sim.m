@@ -1,8 +1,10 @@
-function [ out, cnet ] = sim( cnet, input )
+function [ out, cnet ] = sim( cnet, input, debug )
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 
-debug = 0;
+if nargin < 3 
+    debug = 0;
+end
 
 Ip{1} = input;
 cnet.Ip{1} = input;
