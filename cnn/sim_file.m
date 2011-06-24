@@ -1,8 +1,7 @@
 [x,y]=meshgrid(1:480,1:640);
 z=2*x +3*y;
 z=z/max(max(z));
-
-test = reshape(mapstd(reshape(double(imread('../cyfry_test/test1.bmp')),1,[])),480,640);
+test = reshape(mapstd(reshape(double(imread('../cyfry_test/test4.bmp')),1,[])),480,640);
 
 [out,cnet] = sim(cnet, test, 1);
 
