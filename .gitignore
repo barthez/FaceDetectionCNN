@@ -6,3 +6,5 @@
 *.asv
 *.bak
 *.pdf
+doc/*.out
+doc/*.toc
