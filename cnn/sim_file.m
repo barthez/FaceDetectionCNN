@@ -3,7 +3,8 @@ z=2*x +3*y;
 z=z/max(max(z));
 test = reshape(mapstd(reshape(double(imread('../cyfry_test/test4.bmp')),1,[])),480,640);
 
-[out,cnet] = sim(cnet, test, 1);
+debug = 1;  %0 - aby nie wyswietlac obrazow posrednich, 1-aby wyswietlac
+[out,cnet] = sim(cnet, test, debug);
 
 t_out = ones(120,160) * min(min(out));
 t_out(5:116,5:157) = out;
