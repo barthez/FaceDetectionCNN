@@ -250,41 +250,49 @@ mniejszą liczbę własności. Ponownie zatem stworzyliśmy bazę obrazów z cyf
 wspomniany algorytm dla nowych danych. Dla tej samej budowy sieci program zaczął rozróżniać cyfry.
 
 Wykres uczenia się systemu dla przeprowadzonych testów prezentuje się następująco:
-
-\vspace*{0.5cm}
 \begin{center}
-\includegraphics[scale=0.6]{wykres}
+\includegraphics[scale=0.5]{wykres}
 \end{center}
-\vspace*{0.5cm}
 
 Jak możemy zauważyć, z każdą przeprowadzoną iteracją wartość błędu obliczeń się zmniejsza, 
 co symbolizuje że sieć uczy się prawidłowo.
 
 Tak wyuczoną siec można juz poddać głębszym testom. Postanowiliśmy tego dokonać tworząc obraz 
 testowy:
-
-\vspace*{0.5cm}
 \begin{center}
-\includegraphics[scale=0.4]{test1}
+\includegraphics[scale=0.35]{test1}
 \end{center}
-\vspace*{0.5cm}
 
 Po przeprowadzeniu testu otrzymaliśmy zadowalający obraz wynikowy, który potwierdza, że stworzona przez nas 
 sieć neuronowa działa i nadaje się do wykrywania prostych obiektów np liczb.
 
 Oto otrzymany obraz wynikowy:
 
-\vspace*{0.5cm}
-\hspace*{4cm}
-\includegraphics[scale=0.4]{wynik}
-\hspace*{3cm}
-\vspace*{0,5cm}
+\begin{center}
+\includegraphics[scale=0.35]{wynik}
+\end{center}
 
 %=================================================
+\newpage
 \section{Rezultaty i wnioski}
+Wykonując powyższy projekt natrafiliśmy na wiele problemów zarówno natury informatycznej, jak i matematycznej.
+Większość z nich udało nam się rozwiązać samodzielnie, do pozostałych zaś rozwiązania znaleźliśmy w odpowiedniej
+literaturze. Największego natomiast nie udało nam się w pełni rozwiązać. Nie mogliśmy dojść do tego, dlaczego
+powstały przez nas algorytm nie chciał wykrywać twarzy, zaś cyfry wykrywał doskonale. Mieliśmy tutaj wiele teorii, 
+które staraliśmy się po kolei eliminować. W końcu zaś skończyły nam się pomysły, bądź też brakło nam odpowiednich 
+podstaw teoretycznych. Po konsultacji z opiekunem projektu postanowiliśmy skupić się w pełni na wykrywaniu cyfr na obrazie.
+Z zadowoleniem możemy stwierdzić, że powstały przez nas algorytm  spełnia wyżej wspomniane zadanie.
+Wykrywa on cyfry niezależnie od wielkości i ich ilości. 
 
-%=================================================
-\section{Podsumowanie}
+Podczas realizacji projektu nauczyliśmy się wielu nowych i ciekawych rzeczy. Podejmując się wykonania projektu nikt
+z nas nie miał pojęcia o tym czym są Sieci Neuronowe. Teraz zaś nie tylko znamy ich podstawy teoretyczne, ale także
+potrafimy sami je zbudować i zaprojektować. Ponadto realizując projekt pogłębiliśmy naszą wiedzę z wielu innych dziedzin
+informatycznych. Począwszy od nauki zaawansowanego programowania w Matlabie,
+poprzez dokładniejsze poznanie metod przetwarzania obrazów cyfrowych, aż do poszerzenia umiejętności posługiwania się
+informatycznymi narzędziami służącymi do pracy grupowej. 
+
+Mamy nadzieję że to czego nauczyliśmy się podczas realizacji tego projektu zaowocuje w przyszłości 
+i pozwoli nam się jeszcze bardziej rozwijać. Chociażby poprzez kontynuowanie projektu jako pracy inżynierskiej.
 
 %=================================================
 \section{Literatura}
@@ -385,8 +393,23 @@ szybko formatować tekst oraz wspomaga automatyczną indeksację treści i ekspo
 
 
 %=================================================
-\section{Dodatek B: Opis realizacji rozwiązania}
-\section{Dodatek C: Opis informatycznych procedur}
-\section{Dodatek D: Spis zawartości dołączonych nośników}
+\section{Dodatek B: Opis obsługi programu}
+ \begin{enumerate}
+\item W programie Matlab należy otworzyć plik o nazwie \verb#train_cnn.m# znajdujący się w katalogu \verb#cnn#.
+\item W pliku tym należy ustalić odpowiednie ścieżki dostępu do katalogów z obrazkami do nauki (zmienne  \textbf{IpG} i  \textbf{IpB})
+\item Należy uruchomić zmodyfikowany skrypt Matlaba i poczekać do zakończenia procesu trenowania sieci 
+(informacje o zakończeniu każdej z epok testowania pojawiają się w głównym oknie programu)
+\item W workspace Matlaba powinna pojawić się nowa zmienna o nazwie cnet, która odpowiada wyuczonej przez nas sieci
+\item Otwieramy plik o nazwie \verb#sim_file.m# i ponownie zmieniamy w nim ścieżkę do katalogu w którym znajdują się
+obrazki do testów
+\item Odpalamy skrypt i obserwujemy wyniki.\\
+W pierwszym otwartym oknie można zaobserwować kolejne etapy przechodzenia obrazu testowego przez sieć neuronową.\\
+W drugim natomiast obserwujemy już realny wynik (wykrycie na obrazie pożądanych elementów)
+ \end{enumerate}
+%=================================================
+
+\section{Dodatek C: Opis realizacji rozwiązania}
+\section{Dodatek D: Opis informatycznych procedur}
+\section{Dodatek E: Spis zawartości dołączonych nośników}
 
 \end{document}
