@@ -7,6 +7,7 @@
 \usepackage{epstopdf}
 \usepackage{anysize}
 \usepackage{makeidx}
+\usepackage{hyperref}
 
 
 
@@ -68,8 +69,12 @@ dr inż.~Mirosław \textsc{Jabłoński}
 \begin{document}
 
 \maketitle
-\printindex
 
+\newpage
+
+\tableofcontents
+
+\newpage
 
 %=================================================
 \section{Streszczenie}
@@ -395,14 +400,14 @@ szybko formatować tekst oraz wspomaga automatyczną indeksację treści i ekspo
 %=================================================
 \section{Dodatek B: Opis obsługi programu}
  \begin{enumerate}
-\item W programie Matlab należy otworzyć plik o nazwie \verb#train_cnn.m# znajdujący się w katalogu \verb#cnn#.
+\item W programie Matlab należy otworzyć plik o nazwie \verb#train_cnn.m# znajdujący się w katalogu \verb#cnn#. Zamiast trenować sieci możemy wczytać zmienne z już wytrenowanymi sieciami, które znajdują się w plikach \verb#digit_cnn.mat#, \verb#face_cnn.mat# oraz \verb#face_cnn.2.mat#.
 \item W pliku tym należy ustalić odpowiednie ścieżki dostępu do katalogów z obrazkami do nauki (zmienne  \textbf{IpG} i  \textbf{IpB})
 \item Należy uruchomić zmodyfikowany skrypt Matlaba i poczekać do zakończenia procesu trenowania sieci 
 (informacje o zakończeniu każdej z epok testowania pojawiają się w głównym oknie programu)
 \item W workspace Matlaba powinna pojawić się nowa zmienna o nazwie cnet, która odpowiada wyuczonej przez nas sieci
 \item Otwieramy plik o nazwie \verb#sim_file.m# i ponownie zmieniamy w nim ścieżkę do katalogu w którym znajdują się
 obrazki do testów
-\item Odpalamy skrypt i obserwujemy wyniki.\\
+\item Wykonujemy skrypt i obserwujemy wyniki.\\
 W pierwszym otwartym oknie można zaobserwować kolejne etapy przechodzenia obrazu testowego przez sieć neuronową.\\
 W drugim natomiast obserwujemy już realny wynik (wykrycie na obrazie pożądanych elementów)
  \end{enumerate}
