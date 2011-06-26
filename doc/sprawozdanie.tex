@@ -407,9 +407,12 @@ szybko formatować tekst oraz wspomaga automatyczną indeksację treści i ekspo
 \item W workspace Matlaba powinna pojawić się nowa zmienna o nazwie cnet, która odpowiada wyuczonej przez nas sieci
 \item Otwieramy plik o nazwie \verb#sim_file.m# i ponownie zmieniamy w nim ścieżkę do katalogu w którym znajdują się
 obrazki do testów
-\item Wykonujemy skrypt i obserwujemy wyniki.\\
-W pierwszym otwartym oknie można zaobserwować kolejne etapy przechodzenia obrazu testowego przez sieć neuronową.\\
-W drugim natomiast obserwujemy już realny wynik (wykrycie na obrazie pożądanych elementów)
+\item Można także zmodyfikować zmienną  \textbf{debug} w zależności od tego czy chcemy obserwować kolejne
+ etapy przechodzenia  obrazu testowego przez sieć neuronową
+\item Odpalamy skrypt i obserwujemy wyniki.\\
+Jeśli \textbf{debug} była ustawiona na 1, to obserwujemy w pierwszym oknie obrazy pośrednie. W przeciwnym wypadku
+obserwujemy tylko realny wynik (wykrycie na obrazie pożądanych elementów)
+
  \end{enumerate}
 %=================================================
 
