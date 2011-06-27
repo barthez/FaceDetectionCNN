@@ -277,15 +277,27 @@ Oto otrzymany obraz wynikowy:
 \includegraphics[scale=0.35]{wynik}
 \end{center}
 
+Podjęliśmy kolejne próby zastosowania algorytmu do twarzy. W dalszym ciągu jednak wartość błędu nie malała jak to miało miejsce w przypadku cyfr. Mimo to udało się następujące rezultaty dla wyciętych twarzy na białym tle:
+
+\begin{center}
+\includegraphics[scale=0.35]{wynik_twarze}
+\end{center}
+
+W pozostałych przypadkach, w których tło było pozostawione sieć neuronowa zaczęła się gubić. Dla jednolitego jasnego tła wykryte zostały sylwetki osób, a w bardziej skomplikowanych całe grupy osób, fragmenty ubioru oraz większe bryły.
+
+\begin{center}
+\includegraphics[scale=0.35]{wynik_sylwetki}
+\end{center}
+
 %=================================================
 \newpage
 \section{Rezultaty i wnioski}
 Wykonując powyższy projekt natrafiliśmy na wiele problemów zarówno natury informatycznej, jak i matematycznej.
 Większość z nich udało nam się rozwiązać samodzielnie, do pozostałych zaś rozwiązania znaleźliśmy w odpowiedniej
 literaturze. Największego natomiast nie udało nam się w pełni rozwiązać. Nie mogliśmy dojść do tego, dlaczego
-powstały przez nas algorytm nie chciał wykrywać twarzy, zaś cyfry wykrywał doskonale. Mieliśmy tutaj wiele teorii, 
+powstały przez nas algorytm nie chciał wykrywać twarzy na bardziej skomplikowanych tłach, kiedy z uczeniem się cyfr nie miał większych problemów. Mieliśmy tutaj wiele teorii, 
 które staraliśmy się po kolei eliminować. W końcu zaś skończyły nam się pomysły, bądź też brakło nam odpowiednich 
-podstaw teoretycznych. Po konsultacji z opiekunem projektu postanowiliśmy skupić się w pełni na wykrywaniu cyfr na obrazie.
+podstaw teoretycznych. Po konsultacji z opiekunem projektu skupiliśmy się głównie na wykrywaniu cyfr na obrazie.
 Z zadowoleniem możemy stwierdzić, że powstały przez nas algorytm  spełnia wyżej wspomniane zadanie.
 Wykrywa on cyfry niezależnie od wielkości i ich ilości. 
 
